@@ -28,18 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Book_Form));
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Label_Close = new System.Windows.Forms.Label();
             this.btn_Bookheader = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_PrintDT = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
             this.Lb_typeFind = new System.Windows.Forms.ComboBox();
             this.panel_Infor = new System.Windows.Forms.Panel();
             this.txt_Type = new System.Windows.Forms.TextBox();
-            this.btn_UploadImage = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Pic_Book = new System.Windows.Forms.PictureBox();
             this.Dtp_Updateday = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.Description = new System.Windows.Forms.Label();
@@ -61,18 +59,29 @@
             this.txt_Find = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvBOOK = new System.Windows.Forms.DataGridView();
+            this.iDBookDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDpublisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDauthorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updatedayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nbooksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bOOKSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.library1012DataSet1 = new Final_1__Library.library1012DataSet1();
             this.label_Header = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Edit = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
-            this.btn_PrintDT = new System.Windows.Forms.Button();
+            this.bOOKSTableAdapter = new Final_1__Library.library1012DataSet1TableAdapters.BOOKSTableAdapter();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel_Infor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_Book)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBOOK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bOOKSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.library1012DataSet1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,13 +139,23 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1318, 805);
             this.panel3.TabIndex = 7;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // btn_PrintDT
+            // 
+            this.btn_PrintDT.Location = new System.Drawing.Point(1082, 697);
+            this.btn_PrintDT.Name = "btn_PrintDT";
+            this.btn_PrintDT.Size = new System.Drawing.Size(86, 81);
+            this.btn_PrintDT.TabIndex = 84;
+            this.btn_PrintDT.UseVisualStyleBackColor = true;
+            this.btn_PrintDT.Click += new System.EventHandler(this.btn_PrintDT_Click);
             // 
             // btn_Back
             // 
             this.btn_Back.BackColor = System.Drawing.Color.White;
             this.btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Back.ForeColor = System.Drawing.Color.Red;
-            this.btn_Back.Location = new System.Drawing.Point(18, 676);
+            this.btn_Back.Location = new System.Drawing.Point(23, 704);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(88, 74);
             this.btn_Back.TabIndex = 83;
@@ -155,9 +174,6 @@
             // panel_Infor
             // 
             this.panel_Infor.Controls.Add(this.txt_Type);
-            this.panel_Infor.Controls.Add(this.btn_UploadImage);
-            this.panel_Infor.Controls.Add(this.label2);
-            this.panel_Infor.Controls.Add(this.Pic_Book);
             this.panel_Infor.Controls.Add(this.Dtp_Updateday);
             this.panel_Infor.Controls.Add(this.label1);
             this.panel_Infor.Controls.Add(this.Description);
@@ -177,7 +193,7 @@
             this.panel_Infor.Controls.Add(this.lbl3);
             this.panel_Infor.Location = new System.Drawing.Point(3, 14);
             this.panel_Infor.Name = "panel_Infor";
-            this.panel_Infor.Size = new System.Drawing.Size(469, 638);
+            this.panel_Infor.Size = new System.Drawing.Size(469, 572);
             this.panel_Infor.TabIndex = 65;
             // 
             // txt_Type
@@ -188,37 +204,6 @@
             this.txt_Type.Name = "txt_Type";
             this.txt_Type.Size = new System.Drawing.Size(256, 36);
             this.txt_Type.TabIndex = 84;
-            // 
-            // btn_UploadImage
-            // 
-            this.btn_UploadImage.Location = new System.Drawing.Point(15, 515);
-            this.btn_UploadImage.Name = "btn_UploadImage";
-            this.btn_UploadImage.Size = new System.Drawing.Size(117, 74);
-            this.btn_UploadImage.TabIndex = 82;
-            this.btn_UploadImage.Text = "Upload Image";
-            this.btn_UploadImage.UseVisualStyleBackColor = true;
-            this.btn_UploadImage.Click += new System.EventHandler(this.btn_UploadImage_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(18, 480);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 19);
-            this.label2.TabIndex = 81;
-            this.label2.Text = "Book Picture : ";
-            // 
-            // Pic_Book
-            // 
-            this.Pic_Book.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Pic_Book.Image = ((System.Drawing.Image)(resources.GetObject("Pic_Book.Image")));
-            this.Pic_Book.Location = new System.Drawing.Point(181, 478);
-            this.Pic_Book.Name = "Pic_Book";
-            this.Pic_Book.Size = new System.Drawing.Size(256, 111);
-            this.Pic_Book.TabIndex = 80;
-            this.Pic_Book.TabStop = false;
             // 
             // Dtp_Updateday
             // 
@@ -255,7 +240,7 @@
             this.txt_Description.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Description.Multiline = true;
             this.txt_Description.Name = "txt_Description";
-            this.txt_Description.Size = new System.Drawing.Size(256, 88);
+            this.txt_Description.Size = new System.Drawing.Size(256, 165);
             this.txt_Description.TabIndex = 76;
             // 
             // label10
@@ -422,14 +407,99 @@
             // dgvBOOK
             // 
             this.dgvBOOK.AllowUserToOrderColumns = true;
+            this.dgvBOOK.AutoGenerateColumns = false;
             this.dgvBOOK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBOOK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDBookDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.iDpublisherDataGridViewTextBoxColumn,
+            this.iDauthorDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn,
+            this.updatedayDataGridViewTextBoxColumn,
+            this.nbooksDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn});
+            this.dgvBOOK.DataSource = this.bOOKSBindingSource;
             this.dgvBOOK.Location = new System.Drawing.Point(478, 55);
             this.dgvBOOK.Name = "dgvBOOK";
             this.dgvBOOK.RowHeadersWidth = 51;
-            this.dgvBOOK.RowTemplate.Height = 24;
-            this.dgvBOOK.Size = new System.Drawing.Size(725, 531);
+            this.dgvBOOK.RowTemplate.Height = 90;
+            this.dgvBOOK.Size = new System.Drawing.Size(733, 531);
             this.dgvBOOK.TabIndex = 56;
             this.dgvBOOK.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBOOK_CellContentClick);
+            // 
+            // iDBookDataGridViewTextBoxColumn
+            // 
+            this.iDBookDataGridViewTextBoxColumn.DataPropertyName = "ID_Book";
+            this.iDBookDataGridViewTextBoxColumn.HeaderText = "ID_Book";
+            this.iDBookDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDBookDataGridViewTextBoxColumn.Name = "iDBookDataGridViewTextBoxColumn";
+            this.iDBookDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // iDpublisherDataGridViewTextBoxColumn
+            // 
+            this.iDpublisherDataGridViewTextBoxColumn.DataPropertyName = "ID_publisher";
+            this.iDpublisherDataGridViewTextBoxColumn.HeaderText = "ID_publisher";
+            this.iDpublisherDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDpublisherDataGridViewTextBoxColumn.Name = "iDpublisherDataGridViewTextBoxColumn";
+            this.iDpublisherDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // iDauthorDataGridViewTextBoxColumn
+            // 
+            this.iDauthorDataGridViewTextBoxColumn.DataPropertyName = "ID_author";
+            this.iDauthorDataGridViewTextBoxColumn.HeaderText = "ID_author";
+            this.iDauthorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDauthorDataGridViewTextBoxColumn.Name = "iDauthorDataGridViewTextBoxColumn";
+            this.iDauthorDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // updatedayDataGridViewTextBoxColumn
+            // 
+            this.updatedayDataGridViewTextBoxColumn.DataPropertyName = "Update_day";
+            this.updatedayDataGridViewTextBoxColumn.HeaderText = "Update_day";
+            this.updatedayDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.updatedayDataGridViewTextBoxColumn.Name = "updatedayDataGridViewTextBoxColumn";
+            this.updatedayDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nbooksDataGridViewTextBoxColumn
+            // 
+            this.nbooksDataGridViewTextBoxColumn.DataPropertyName = "N_books";
+            this.nbooksDataGridViewTextBoxColumn.HeaderText = "N_books";
+            this.nbooksDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nbooksDataGridViewTextBoxColumn.Name = "nbooksDataGridViewTextBoxColumn";
+            this.nbooksDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // bOOKSBindingSource
+            // 
+            this.bOOKSBindingSource.DataMember = "BOOKS";
+            this.bOOKSBindingSource.DataSource = this.library1012DataSet1;
+            // 
+            // library1012DataSet1
+            // 
+            this.library1012DataSet1.DataSetName = "library1012DataSet1";
+            this.library1012DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label_Header
             // 
@@ -454,9 +524,9 @@
             this.panel2.Controls.Add(this.btn_Edit);
             this.panel2.Controls.Add(this.btn_delete);
             this.panel2.Controls.Add(this.btn_Add);
-            this.panel2.Location = new System.Drawing.Point(0, 96);
+            this.panel2.Location = new System.Drawing.Point(0, 90);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(222, 808);
+            this.panel2.Size = new System.Drawing.Size(242, 814);
             this.panel2.TabIndex = 6;
             // 
             // btn_Save
@@ -503,14 +573,9 @@
             this.btn_Add.UseVisualStyleBackColor = true;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
-            // btn_PrintDT
+            // bOOKSTableAdapter
             // 
-            this.btn_PrintDT.Location = new System.Drawing.Point(1072, 669);
-            this.btn_PrintDT.Name = "btn_PrintDT";
-            this.btn_PrintDT.Size = new System.Drawing.Size(86, 81);
-            this.btn_PrintDT.TabIndex = 84;
-            this.btn_PrintDT.UseVisualStyleBackColor = true;
-            this.btn_PrintDT.Click += new System.EventHandler(this.btn_PrintDT_Click);
+            this.bOOKSTableAdapter.ClearBeforeFill = true;
             // 
             // Book_Form
             // 
@@ -528,8 +593,9 @@
             this.panel3.PerformLayout();
             this.panel_Infor.ResumeLayout(false);
             this.panel_Infor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_Book)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBOOK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bOOKSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.library1012DataSet1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -552,9 +618,6 @@
         private System.Windows.Forms.TextBox txt_Find;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel_Infor;
-        private System.Windows.Forms.Button btn_UploadImage;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox Pic_Book;
         private System.Windows.Forms.DateTimePicker Dtp_Updateday;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Description;
@@ -576,5 +639,16 @@
         private System.Windows.Forms.TextBox txt_Type;
         private System.Windows.Forms.TextBox txt_Publisher;
         private System.Windows.Forms.Button btn_PrintDT;
+        private library1012DataSet1 library1012DataSet1;
+        private System.Windows.Forms.BindingSource bOOKSBindingSource;
+        private library1012DataSet1TableAdapters.BOOKSTableAdapter bOOKSTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDBookDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDpublisherDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDauthorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updatedayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nbooksDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
     }
 }

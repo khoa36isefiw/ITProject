@@ -11,7 +11,7 @@ namespace Final_1__Library.CLASSES
     {
         public DataTable Take_Publisher()
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps =
             from p in qltvEntity.PUBLISHERs
             select p;
@@ -30,7 +30,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Add_Publisher(int id, string name, int phone,string email, string address)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
 
             PUBLISHER publisher = new PUBLISHER();
             publisher.ID_publisher = id;
@@ -46,7 +46,7 @@ namespace Final_1__Library.CLASSES
         }
         public DataTable GetObjectByID(int id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.PUBLISHERs
                        where p.ID_publisher == id
                        select p);
@@ -65,7 +65,7 @@ namespace Final_1__Library.CLASSES
         }
         public DataTable GetObjectByName(string name)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.PUBLISHERs
                        where p.Name == name
                        select p);
@@ -84,7 +84,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Edit_Publisher(int id, string name, int phone, string email, string address)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tpQuery = (from p in qltvEntity.PUBLISHERs
                            where p.ID_publisher == id
                            select p).SingleOrDefault();
@@ -100,7 +100,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Delete_Publisher(int id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
 
             PUBLISHER publisher = new PUBLISHER();
             BL_Book dbBo = new BL_Book();

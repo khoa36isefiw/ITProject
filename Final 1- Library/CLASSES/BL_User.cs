@@ -11,7 +11,7 @@ namespace Final_1__Library.CLASSES
     {
         public DataTable LayNguoiDung()
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps =
             from p in qltvEntity.USERS
             select p;
@@ -27,9 +27,9 @@ namespace Final_1__Library.CLASSES
         public DataTable CheckUser (string username,string email)
         {
             DataTable dt = new DataTable();
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.USERS
-                       where p.UserName == username && p.Email == email
+                       where p.UserName == username && p.email == email
                        select p);
             dt.Columns.Add("UserName");
             dt.Columns.Add("PassWord");
@@ -37,7 +37,7 @@ namespace Final_1__Library.CLASSES
           
             foreach (var p in tps)
             {
-                dt.Rows.Add(p.UserName, p.PassWord,p.Email);
+                dt.Rows.Add(p.UserName, p.PassWord, p.email);
             }
             return dt;
 
@@ -45,7 +45,7 @@ namespace Final_1__Library.CLASSES
         public DataTable CheckUserName(string username)
         {
             DataTable dt = new DataTable();
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.USERS
                        where p.UserName == username 
                        select p);
@@ -55,7 +55,7 @@ namespace Final_1__Library.CLASSES
 
             foreach (var p in tps)
             {
-                dt.Rows.Add(p.UserName, p.PassWord, p.Email);
+                dt.Rows.Add(p.UserName, p.PassWord, p.email);
             }
             return dt;
 
@@ -63,7 +63,7 @@ namespace Final_1__Library.CLASSES
 
         public bool EditUser(string username,string password)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tpQuery = (from p in qltvEntity.USERS
                            where p.UserName == username
                            select p).SingleOrDefault();
@@ -78,12 +78,12 @@ namespace Final_1__Library.CLASSES
         }
         public bool AddUser(string username, string password,string email)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             
             USER user = new USER();
             user.UserName = username;
             user.PassWord = password;
-            user.Email = email;
+            user.email = email;
             qltvEntity.USERS.Add(user);
             qltvEntity.SaveChanges();
 
@@ -92,7 +92,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool CompareUser(string username, string password)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps =
             from p in qltvEntity.USERS
             select p;
@@ -113,6 +113,49 @@ namespace Final_1__Library.CLASSES
             }
             else return true;
             
+        }
+        public int CompareAuUser(string username, string password,int type)
+        {
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
+            var tps =
+            from p in qltvEntity.USERS
+            select p;
+            int i = 0;
+            foreach (var p in tps)
+            {
+                if ( type.Equals(p.Type) && type == 1)
+                {
+                    if (username.Equals(p.UserName))
+                    {
+                        if (password.Equals(p.PassWord))
+                        {
+
+                            i = 1;
+
+                        }
+                    }
+                }
+                if ( type.Equals(p.Type) && type == 2 )
+                {
+                    if (username.Equals(p.UserName))
+                    {
+                        if (password.Equals(p.PassWord))
+                        {
+
+                            i = 2;
+
+                        }
+                    }
+                }
+                //else i = 0;
+
+            }
+            if (i == 0)
+            {
+                return 0;
+            }
+            else return i;
+
         }
     }   
     

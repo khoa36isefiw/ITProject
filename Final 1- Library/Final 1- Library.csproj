@@ -33,28 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.DataAccess.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Pdf.v21.2.Core, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Pdf.v21.2.Drawing, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.PivotGrid.v21.2.Core, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.RichEdit.v21.2.Export, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Sparkline.v21.2.Core, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPdfViewer.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -66,6 +44,9 @@
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
@@ -91,13 +72,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AUTHOR.cs">
-      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="BOOK.cs">
-      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="Borrow_Book.cs">
-      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="CLASSES\Accountant.cs" />
     <Compile Include="CLASSES\BL_Author.cs" />
@@ -117,8 +98,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetBOOK.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_Borrowed_Book.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Borrowed_Book.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EmpDataset.cs">
+      <DependentUpon>EmpDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EmpDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpDataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EMPLOYEE.cs">
-      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="FORMS\Book-Form.cs">
       <SubType>Form</SubType>
@@ -188,6 +182,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>library1010DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="library1012DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>library1012DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="library1012DataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>library1012DataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="library1012DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>library1012DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="library3DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -206,7 +215,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PUBLISHER.cs">
-      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QLBrBook.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBrBook.xsd</DependentUpon>
     </Compile>
     <Compile Include="QLNV.cs">
       <DependentUpon>QLNV.xsd</DependentUpon>
@@ -222,28 +236,37 @@
     <Compile Include="FORMS\EmSaRecs.Designer.cs">
       <DependentUpon>EmSaRecs.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyThuVienEntities.Context.cs">
+    <Compile Include="QuanLyThuVien.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyThuVienEntities.Context.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyThuVienEntities.cs">
+    <Compile Include="QuanLyThuVien.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien.tt</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyThuVienEntities.Designer.cs">
+    <Compile Include="QuanLyThuVien.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyThuVienEntities.edmx</DependentUpon>
+      <DependentUpon>QuanLyThuVien.edmx</DependentUpon>
     </Compile>
     <Compile Include="READER.cs">
-      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_Form.Designer.cs">
+      <DependentUpon>Report_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="USER.cs">
-      <DependentUpon>QuanLyThuVienEntities.tt</DependentUpon>
+      <DependentUpon>QuanLyThuVien.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BorrowedBook_report.rdlc" />
+    <EmbeddedResource Include="EMPLOYEE.rdlc" />
+    <EmbeddedResource Include="EmpReport.rdlc" />
     <EmbeddedResource Include="FORMS\Book-Form.resx">
       <DependentUpon>Book-Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,9 +306,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FORMS\EmSaRecs.resx">
       <DependentUpon>EmSaRecs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Form.resx">
+      <DependentUpon>Report_Form.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="DataSetBOOK.xsc">
@@ -299,6 +326,28 @@
     <None Include="DataSetBOOK.xss">
       <DependentUpon>DataSetBOOK.xsd</DependentUpon>
     </None>
+    <None Include="DS_Borrowed_Book.xsc">
+      <DependentUpon>DS_Borrowed_Book.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Borrowed_Book.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Borrowed_Book.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_Borrowed_Book.xss">
+      <DependentUpon>DS_Borrowed_Book.xsd</DependentUpon>
+    </None>
+    <None Include="EmpDataset.xsc">
+      <DependentUpon>EmpDataset.xsd</DependentUpon>
+    </None>
+    <None Include="EmpDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmpDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmpDataset.xss">
+      <DependentUpon>EmpDataset.xsd</DependentUpon>
+    </None>
     <None Include="library1010DataSet.xsc">
       <DependentUpon>library1010DataSet.xsd</DependentUpon>
     </None>
@@ -309,6 +358,39 @@
     </None>
     <None Include="library1010DataSet.xss">
       <DependentUpon>library1010DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="library1012DataSet1.xsc">
+      <DependentUpon>library1012DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="library1012DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>library1012DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="library1012DataSet1.xss">
+      <DependentUpon>library1012DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="library1012DataSet11.xsc">
+      <DependentUpon>library1012DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="library1012DataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>library1012DataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="library1012DataSet11.xss">
+      <DependentUpon>library1012DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="library1012DataSet2.xsc">
+      <DependentUpon>library1012DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="library1012DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>library1012DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="library1012DataSet2.xss">
+      <DependentUpon>library1012DataSet2.xsd</DependentUpon>
     </None>
     <None Include="library3DataSet.xsc">
       <DependentUpon>library3DataSet.xsd</DependentUpon>
@@ -353,6 +435,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QLBrBook.xsc">
+      <DependentUpon>QLBrBook.xsd</DependentUpon>
+    </None>
+    <None Include="QLBrBook.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBrBook.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QLBrBook.xss">
+      <DependentUpon>QLBrBook.xsd</DependentUpon>
+    </None>
     <None Include="QLNV.xsc">
       <DependentUpon>QLNV.xsd</DependentUpon>
     </None>
@@ -364,12 +457,12 @@
     <None Include="QLNV.xss">
       <DependentUpon>QLNV.xsd</DependentUpon>
     </None>
-    <EntityDeploy Include="QuanLyThuVienEntities.edmx">
+    <EntityDeploy Include="QuanLyThuVien.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLyThuVienEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyThuVien.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="QuanLyThuVienEntities.edmx.diagram">
-      <DependentUpon>QuanLyThuVienEntities.edmx</DependentUpon>
+    <None Include="QuanLyThuVien.edmx.diagram">
+      <DependentUpon>QuanLyThuVien.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -393,6 +486,7 @@
     <Content Include="IMAGES\Employee_button.png" />
     <Content Include="IMAGES\Genres_button_official.png" />
     <Content Include="IMAGES\history.png" />
+    <None Include="IMAGES\picture.png" />
     <Content Include="IMAGES\printer.png" />
     <Content Include="IMAGES\printer2.png" />
     <Content Include="IMAGES\publishing.png" />
@@ -400,15 +494,15 @@
     <Content Include="IMAGES\user.png" />
     <Content Include="IMAGES\Pass.png" />
     <Content Include="IMAGES\user_button_official.png" />
-    <Content Include="QuanLyThuVienEntities.Context.tt">
+    <Content Include="QuanLyThuVien.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>QuanLyThuVienEntities.Context.cs</LastGenOutput>
-      <DependentUpon>QuanLyThuVienEntities.edmx</DependentUpon>
+      <DependentUpon>QuanLyThuVien.edmx</DependentUpon>
+      <LastGenOutput>QuanLyThuVien.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="QuanLyThuVienEntities.tt">
+    <Content Include="QuanLyThuVien.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyThuVienEntities.edmx</DependentUpon>
-      <LastGenOutput>QuanLyThuVienEntities.cs</LastGenOutput>
+      <DependentUpon>QuanLyThuVien.edmx</DependentUpon>
+      <LastGenOutput>QuanLyThuVien.cs</LastGenOutput>
     </Content>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

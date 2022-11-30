@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="library1010ModelStoreContainer" CdmEntityContainer="QuanLyThuVienEntities">
+  <EntityContainerMapping StorageEntityContainer="library1012ModelStoreContainer" CdmEntityContainer="QuanLyThuVienEntities">
     <EntitySetMapping Name="AUTHORs">
-      <EntityTypeMapping TypeName="library1010Model.AUTHOR">
+      <EntityTypeMapping TypeName="library1012Model.AUTHOR">
         <MappingFragment StoreEntitySet="AUTHOR">
           <ScalarProperty Name="ID_author" ColumnName="ID_author" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -12,8 +12,9 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BOOKS">
-      <EntityTypeMapping TypeName="library1010Model.BOOK">
+      <EntityTypeMapping TypeName="library1012Model.BOOK">
         <MappingFragment StoreEntitySet="BOOKS">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
           <ScalarProperty Name="ID_Book" ColumnName="ID_Book" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID_publisher" ColumnName="ID_publisher" />
@@ -23,12 +24,11 @@
           <ScalarProperty Name="Update_day" ColumnName="Update_day" />
           <ScalarProperty Name="N_books" ColumnName="N_books" />
           <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="Picture" ColumnName="Picture" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Borrow_Book">
-      <EntityTypeMapping TypeName="library1010Model.Borrow_Book">
+      <EntityTypeMapping TypeName="library1012Model.Borrow_Book">
         <MappingFragment StoreEntitySet="Borrow_Book">
           <ScalarProperty Name="ID_Rd" ColumnName="ID_Rd" />
           <ScalarProperty Name="ID_Book" ColumnName="ID_Book" />
@@ -42,10 +42,9 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EMPLOYEES">
-      <EntityTypeMapping TypeName="library1010Model.EMPLOYEE">
+      <EntityTypeMapping TypeName="library1012Model.EMPLOYEE">
         <MappingFragment StoreEntitySet="EMPLOYEES">
-          <ScalarProperty Name="Working_Time" ColumnName="Working Time" />
-          <ScalarProperty Name="ID_Employee" ColumnName="ID Employee" />
+          <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="CCCD" ColumnName="CCCD" />
@@ -53,12 +52,13 @@
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Position" ColumnName="Position" />
           <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Working_time" ColumnName="Working_time" />
           <ScalarProperty Name="Extra" ColumnName="Extra" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PUBLISHERs">
-      <EntityTypeMapping TypeName="library1010Model.PUBLISHER">
+      <EntityTypeMapping TypeName="library1012Model.PUBLISHER">
         <MappingFragment StoreEntitySet="PUBLISHER">
           <ScalarProperty Name="ID_publisher" ColumnName="ID_publisher" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -69,7 +69,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="READERs">
-      <EntityTypeMapping TypeName="library1010Model.READER">
+      <EntityTypeMapping TypeName="library1012Model.READER">
         <MappingFragment StoreEntitySet="READER">
           <ScalarProperty Name="ID_rd" ColumnName="ID_rd" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -83,11 +83,12 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="USERS">
-      <EntityTypeMapping TypeName="library1010Model.USER">
+      <EntityTypeMapping TypeName="library1012Model.USER">
         <MappingFragment StoreEntitySet="USERS">
-          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

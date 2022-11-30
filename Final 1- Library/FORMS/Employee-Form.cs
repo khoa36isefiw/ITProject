@@ -55,12 +55,13 @@ namespace Final_1__Library.FORMS
                 if (index == 0)
                 {
                     dgvEMPLOYEE.DataSource = dbEm.Take_Employee();
+                   // dgvEMPLOYEE.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dgvEMPLOYEE.AutoResizeColumns();
                     dgvEMPLOYEE.AutoResizeRows();
                 }
                 if (index == 1)
                 {
-                    dgvEMPLOYEE.DataSource = dbEm.GetObjectByID(this.txt_IDEm.Text);
+                    dgvEMPLOYEE.DataSource = dbEm.GetObjectByID(int.Parse(this.txt_IDEm.Text));
                     dgvEMPLOYEE.AutoResizeColumns();
                     dgvEMPLOYEE.AutoResizeRows();
                 }
@@ -201,7 +202,7 @@ namespace Final_1__Library.FORMS
                 {
                     // Thực hiện lệnh
                     BL_Employee dbEm = new BL_Employee();
-                    dbEm.Add_Employee(this.txt_IDEm.Text, this.txt_NameEm.Text, gender, int.Parse(this.txt_CCCD.Text), int.Parse(this.txt_PhoneEm.Text), this.txt_AddressEm.Text, this.cmb_Position.Text, int.Parse(txt_WorkingTime.Text), int.Parse(txt_Extra.Text));
+                    dbEm.Add_Employee(int.Parse(this.txt_IDEm.Text), this.txt_NameEm.Text, gender, int.Parse(this.txt_CCCD.Text), int.Parse(this.txt_PhoneEm.Text), this.txt_AddressEm.Text, this.cmb_Position.Text, int.Parse(txt_WorkingTime.Text), int.Parse(txt_Extra.Text));
                     // Load lại dữ liệu trên DataGridView
                     LoadData(0);
                     // Thông báo
@@ -216,7 +217,7 @@ namespace Final_1__Library.FORMS
             {
                 // Thực hiện lệnh
                 BL_Employee dbEm = new BL_Employee();
-                dbEm.Edit_Employee(this.txt_IDEm.Text, this.txt_NameEm.Text, gender, int.Parse(this.txt_CCCD.Text), int.Parse(this.txt_PhoneEm.Text), this.txt_AddressEm.Text, this.cmb_Position.Text, int.Parse(txt_WorkingTime.Text), int.Parse(txt_Extra.Text));
+                dbEm.Edit_Employee(int.Parse(this.txt_IDEm.Text), this.txt_NameEm.Text, gender, int.Parse(this.txt_CCCD.Text), int.Parse(this.txt_PhoneEm.Text), this.txt_AddressEm.Text, this.cmb_Position.Text, int.Parse(txt_WorkingTime.Text), int.Parse(txt_Extra.Text));
                 // Load lại dữ liệu trên DataGridView
                 LoadData(0);
                 // Thông báo
@@ -268,7 +269,7 @@ namespace Final_1__Library.FORMS
                 // Kiểm tra có nhắp chọn nút Ok không?
                 if (traloi == DialogResult.Yes)
                 {
-                    dbEm.Delete_Employee(strREADER, strREADER1);
+                    dbEm.Delete_Employee(int.Parse(strREADER), strREADER1);
                     // Cập nhật lại DataGridView
                     LoadData(0);
                     // Thông báo

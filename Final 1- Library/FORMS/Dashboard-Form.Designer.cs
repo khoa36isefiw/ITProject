@@ -44,6 +44,7 @@
             this.Lb_Employee = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -51,7 +52,6 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -240,7 +240,7 @@
             this.panel3.Controls.Add(this.btn_Close);
             this.panel3.Location = new System.Drawing.Point(273, -4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1138, 660);
+            this.panel3.Size = new System.Drawing.Size(1151, 660);
             this.panel3.TabIndex = 1;
             // 
             // panel8
@@ -292,14 +292,27 @@
             this.panel7.Size = new System.Drawing.Size(1093, 354);
             this.panel7.TabIndex = 3;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(395, 68);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(36, 20);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "$18";
+            // 
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel13.BackgroundImage")));
+            this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel13.Controls.Add(this.label14);
             this.panel13.Location = new System.Drawing.Point(895, 68);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(168, 253);
+            this.panel13.Size = new System.Drawing.Size(180, 269);
             this.panel13.TabIndex = 5;
             // 
             // label14
@@ -308,7 +321,7 @@
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(132, 0);
+            this.label14.Location = new System.Drawing.Point(144, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(36, 20);
             this.label14.TabIndex = 2;
@@ -318,6 +331,7 @@
             // 
             this.panel12.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel12.BackgroundImage")));
+            this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel12.Controls.Add(this.label13);
             this.panel12.Location = new System.Drawing.Point(666, 68);
             this.panel12.Name = "panel12";
@@ -340,6 +354,7 @@
             // 
             this.panel11.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel11.BackgroundImage")));
+            this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel11.Controls.Add(this.label12);
             this.panel11.Location = new System.Drawing.Point(447, 68);
             this.panel11.Name = "panel11";
@@ -362,27 +377,18 @@
             // 
             this.panel10.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel10.BackgroundImage")));
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel10.Location = new System.Drawing.Point(234, 68);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(197, 269);
             this.panel10.TabIndex = 3;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(395, 68);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 20);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "$18";
-            // 
             // panel9
             // 
+            this.panel9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel9.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel9.BackgroundImage")));
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel9.Controls.Add(this.label10);
             this.panel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel9.Location = new System.Drawing.Point(17, 68);
@@ -523,10 +529,11 @@
             this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Close.FlatAppearance.BorderSize = 0;
             this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Close.Location = new System.Drawing.Point(1083, 0);
+            this.btn_Close.Font = new System.Drawing.Font("Lato", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Close.ForeColor = System.Drawing.Color.Black;
+            this.btn_Close.Location = new System.Drawing.Point(1085, 8);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(52, 46);
+            this.btn_Close.Size = new System.Drawing.Size(53, 43);
             this.btn_Close.TabIndex = 0;
             this.btn_Close.Text = "X";
             this.btn_Close.UseVisualStyleBackColor = true;

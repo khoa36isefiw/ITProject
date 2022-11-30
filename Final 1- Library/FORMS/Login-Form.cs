@@ -17,7 +17,7 @@ namespace Final_1__Library.FORMS
         {
             InitializeComponent();
         }
-
+        private int check = 0;
         private void Login_Form_Load(object sender, EventArgs e)
         {
             pictureBox_User.Image = Image.FromFile("../../IMAGES/user.png");
@@ -43,25 +43,34 @@ namespace Final_1__Library.FORMS
         {
             Label_Close.ForeColor = Color.White;
         }
+        public bool Aucheck = false;
         //MAINIPULATE THE DASHBOARD FORM THE LOGIN
-        private Dashboard_Form dashF = null;
+       // private Dashboard_Form dashF = new Dashboard_Form(0);
         public Login_Form (Dashboard_Form SourceForm)
         {
             
-            dashF = SourceForm as Dashboard_Form;
+            //dashF = SourceForm as Dashboard_Form;
             InitializeComponent();
         }
         //THE LOGIN BUTTON
         private void btn_Login_Click(object sender, EventArgs e)
         {
             BL_User Login = new BL_User();
-            bool a = false;
-            a = Login.CompareUser(txt_User.Text.ToString(), txt_Pass.Text.ToString());
+            int a = 0;
+            a = Login.CompareAuUser(txt_User.Text.ToString(), txt_Pass.Text.ToString(),check);
             
-                if (a==true)
+                if (a == 1)
                 {
-                    dashF.Enabled = true;
-                    this.Close();
+                    //dashF.Enabled = true;
+                    Dashboard_Form dashF = new Dashboard_Form(1);
+                    dashF.Show();
+                    this.Hide();
+                }
+                else if (a == 2 )
+                {
+                    Dashboard_Form dashF = new Dashboard_Form(2);
+                    dashF.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -87,6 +96,39 @@ namespace Final_1__Library.FORMS
         {
             SignUp_Form signUp_Form = new SignUp_Form();
             signUp_Form.Show();
+        }
+
+        
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e) //Manager
+        {
+            if (checkBox2.Checked == true)
+            {
+                checkBox1.Enabled = false;
+                check = 1;
+            }
+            else if (checkBox2.Checked == false)
+            {
+                checkBox1.Enabled = true;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) //Employee
+        {
+            if (checkBox1.Checked == true)
+            {
+                checkBox2.Enabled = false;
+                check = 2;
+            }
+            else if (checkBox1.Checked == false)
+            {
+                checkBox2.Enabled = true;
+            }
         }
     }
 }

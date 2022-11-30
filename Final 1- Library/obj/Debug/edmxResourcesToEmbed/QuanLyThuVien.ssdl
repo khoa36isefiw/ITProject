@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="library1010Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="library1012Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="AUTHOR">
     <Key>
       <PropertyRef Name="ID_author" />
@@ -22,7 +22,7 @@
     <Property Name="Update_day" Type="date" />
     <Property Name="N_books" Type="int" Nullable="false" />
     <Property Name="price" Type="int" />
-    <Property Name="Picture" Type="varbinary(max)" />
+    <Property Name="Picture" Type="image" />
   </EntityType>
   <EntityType Name="Borrow_Book">
     <Key>
@@ -40,17 +40,17 @@
   </EntityType>
   <EntityType Name="EMPLOYEES">
     <Key>
-      <PropertyRef Name="ID Employee" />
+      <PropertyRef Name="ID_Employee" />
     </Key>
-    <Property Name="ID Employee" Type="nchar" MaxLength="20" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="20" />
-    <Property Name="Gender" Type="nchar" MaxLength="10" />
+    <Property Name="ID_Employee" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
     <Property Name="CCCD" Type="int" />
     <Property Name="Phone" Type="int" />
-    <Property Name="Address" Type="nchar" MaxLength="20" />
-    <Property Name="Position" Type="nchar" MaxLength="20" />
+    <Property Name="Address" Type="varchar" MaxLength="30" />
+    <Property Name="Position" Type="varchar" MaxLength="10" />
     <Property Name="Salary" Type="int" />
-    <Property Name="Working Time" Type="int" />
+    <Property Name="Working_time" Type="int" />
     <Property Name="Extra" Type="int" />
   </EntityType>
   <EntityType Name="PUBLISHER">
@@ -81,8 +81,9 @@
       <PropertyRef Name="UserName" />
     </Key>
     <Property Name="UserName" Type="varchar" MaxLength="40" Nullable="false" />
-    <Property Name="PassWord" Type="varchar" MaxLength="30" />
-    <Property Name="Email" Type="varchar" MaxLength="20" />
+    <Property Name="PassWord" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="40" />
+    <Property Name="Type" Type="int" />
   </EntityType>
   <Association Name="FK__BOOKS__ID_author__2A4B4B5E">
     <End Role="AUTHOR" Type="Self.AUTHOR" Multiplicity="0..1" />
@@ -132,7 +133,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="library1010ModelStoreContainer">
+  <EntityContainer Name="library1012ModelStoreContainer">
     <EntitySet Name="AUTHOR" EntityType="Self.AUTHOR" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BOOKS" EntityType="Self.BOOKS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Borrow_Book" EntityType="Self.Borrow_Book" Schema="dbo" store:Type="Tables" />

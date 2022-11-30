@@ -11,7 +11,7 @@ namespace Final_1__Library.CLASSES
     {
         public DataTable Take_Reader()
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps =
             from p in qltvEntity.READERs
             select p;
@@ -33,7 +33,7 @@ namespace Final_1__Library.CLASSES
         }
         public DataTable GetObjectByID(int id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.READERs
                        where p.ID_rd == id
                        select p);
@@ -54,7 +54,7 @@ namespace Final_1__Library.CLASSES
         }
         public DataTable GetObjectByName(string name)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.READERs
                        where p.Name == name
                        select p);
@@ -75,7 +75,7 @@ namespace Final_1__Library.CLASSES
         }
         public DataTable GetObjectByCCCD(int cccd)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.READERs
                        where p.CCCD == cccd
                        select p);
@@ -96,7 +96,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Add_Reader(int id, string name,DateTime birthday,string gender,int cccd,int phone, string address)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
 
             READER reader = new READER();
             reader.ID_rd = id;
@@ -115,7 +115,7 @@ namespace Final_1__Library.CLASSES
         }
         public void ChangeNBrBook(int id,int index)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tpQuery = (from p in qltvEntity.READERs
                            where p.ID_rd == id
                            select p).SingleOrDefault();
@@ -138,7 +138,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Edit_Reader(int id, string name, DateTime birthday, string gender, int cccd, int phone, string address, int nbook)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tpQuery = (from p in qltvEntity.READERs
                            where p.ID_rd == id
                            select p).SingleOrDefault();
@@ -157,7 +157,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Delete_Reader(int id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
 
             READER reader = new READER();
             reader.ID_rd = id;

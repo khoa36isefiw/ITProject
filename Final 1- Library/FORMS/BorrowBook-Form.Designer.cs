@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.aUTHORTableAdapter = new Final_1__Library.library3DataSetTableAdapters.AUTHORTableAdapter();
-            this.aUTHORBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.library3DataSet = new Final_1__Library.library3DataSet();
             this.label_Header = new System.Windows.Forms.Label();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
@@ -67,6 +64,8 @@
             this.btn_Author = new System.Windows.Forms.Button();
             this.Label_Close = new System.Windows.Forms.Label();
             this.panel_author = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btn_PrintDT = new System.Windows.Forms.Button();
             this.btn_print = new System.Windows.Forms.Button();
             this.Lb_typeFind = new System.Windows.Forms.ComboBox();
             this.Btn_Find = new System.Windows.Forms.Button();
@@ -75,35 +74,26 @@
             this.dgvHISTORY = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.library3DataSet2 = new Final_1__Library.library3DataSet2();
-            this.hISTORYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hISTORYTableAdapter = new Final_1__Library.library3DataSet2TableAdapters.HISTORYTableAdapter();
-            this.btn_PrintDT = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.aUTHORBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.library3DataSet)).BeginInit();
+            this.library1012DataSet2 = new Final_1__Library.library1012DataSet2();
+            this.borrowBookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.borrow_BookTableAdapter = new Final_1__Library.library1012DataSet2TableAdapters.Borrow_BookTableAdapter();
+            this.iDRdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDBookDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.borroweddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimateddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returneddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.extrafeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currentstatusDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lossbookDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel2.SuspendLayout();
             this.panel_infor.SuspendLayout();
             this.pan_return.SuspendLayout();
             this.panel_author.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHISTORY)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.library3DataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hISTORYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.library1012DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.borrowBookBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // aUTHORTableAdapter
-            // 
-            this.aUTHORTableAdapter.ClearBeforeFill = true;
-            // 
-            // aUTHORBindingSource
-            // 
-            this.aUTHORBindingSource.DataMember = "AUTHOR";
-            this.aUTHORBindingSource.DataSource = this.library3DataSet;
-            // 
-            // library3DataSet
-            // 
-            this.library3DataSet.DataSetName = "library3DataSet";
-            this.library3DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label_Header
             // 
@@ -390,7 +380,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(159, 57);
+            this.label11.Location = new System.Drawing.Point(153, 57);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(255, 16);
             this.label11.TabIndex = 33;
@@ -399,7 +389,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Silver;
-            this.button1.Location = new System.Drawing.Point(429, 51);
+            this.button1.Location = new System.Drawing.Point(434, 51);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 29);
             this.button1.TabIndex = 32;
@@ -486,6 +476,7 @@
             // panel_author
             // 
             this.panel_author.BackColor = System.Drawing.Color.White;
+            this.panel_author.Controls.Add(this.button3);
             this.panel_author.Controls.Add(this.btn_PrintDT);
             this.panel_author.Controls.Add(this.btn_print);
             this.panel_author.Controls.Add(this.Lb_typeFind);
@@ -499,6 +490,27 @@
             this.panel_author.Name = "panel_author";
             this.panel_author.Size = new System.Drawing.Size(1246, 551);
             this.panel_author.TabIndex = 6;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Location = new System.Drawing.Point(389, 496);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(163, 33);
+            this.button3.TabIndex = 87;
+            this.button3.Text = "Report";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btn_PrintDT
+            // 
+            this.btn_PrintDT.Location = new System.Drawing.Point(1120, 448);
+            this.btn_PrintDT.Name = "btn_PrintDT";
+            this.btn_PrintDT.Size = new System.Drawing.Size(86, 81);
+            this.btn_PrintDT.TabIndex = 86;
+            this.btn_PrintDT.UseVisualStyleBackColor = true;
+            this.btn_PrintDT.Click += new System.EventHandler(this.btn_PrintDT_Click);
             // 
             // btn_print
             // 
@@ -515,7 +527,7 @@
             // Lb_typeFind
             // 
             this.Lb_typeFind.FormattingEnabled = true;
-            this.Lb_typeFind.Location = new System.Drawing.Point(711, 9);
+            this.Lb_typeFind.Location = new System.Drawing.Point(737, 11);
             this.Lb_typeFind.Name = "Lb_typeFind";
             this.Lb_typeFind.Size = new System.Drawing.Size(147, 24);
             this.Lb_typeFind.TabIndex = 78;
@@ -532,7 +544,7 @@
             // 
             // txt_Find
             // 
-            this.txt_Find.Location = new System.Drawing.Point(872, 5);
+            this.txt_Find.Location = new System.Drawing.Point(889, 5);
             this.txt_Find.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Find.Multiline = true;
             this.txt_Find.Name = "txt_Find";
@@ -546,13 +558,24 @@
             this.label9.Location = new System.Drawing.Point(573, 12);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(132, 19);
+            this.label9.Size = new System.Drawing.Size(151, 19);
             this.label9.TabIndex = 75;
-            this.label9.Text = "Find book by  : ";
+            this.label9.Text = "Find Brbook by  : ";
             // 
             // dgvHISTORY
             // 
+            this.dgvHISTORY.AutoGenerateColumns = false;
             this.dgvHISTORY.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHISTORY.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDRdDataGridViewTextBoxColumn,
+            this.iDBookDataGridViewTextBoxColumn,
+            this.borroweddateDataGridViewTextBoxColumn,
+            this.estimateddateDataGridViewTextBoxColumn,
+            this.returneddateDataGridViewTextBoxColumn,
+            this.extrafeeDataGridViewTextBoxColumn,
+            this.currentstatusDataGridViewCheckBoxColumn,
+            this.lossbookDataGridViewCheckBoxColumn});
+            this.dgvHISTORY.DataSource = this.borrowBookBindingSource;
             this.dgvHISTORY.Location = new System.Drawing.Point(572, 44);
             this.dgvHISTORY.Name = "dgvHISTORY";
             this.dgvHISTORY.RowHeadersWidth = 51;
@@ -585,28 +608,83 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // library3DataSet2
+            // library1012DataSet2
             // 
-            this.library3DataSet2.DataSetName = "library3DataSet2";
-            this.library3DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.library1012DataSet2.DataSetName = "library1012DataSet2";
+            this.library1012DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // hISTORYBindingSource
+            // borrowBookBindingSource
             // 
-            this.hISTORYBindingSource.DataMember = "HISTORY";
-            this.hISTORYBindingSource.DataSource = this.library3DataSet2;
+            this.borrowBookBindingSource.DataMember = "Borrow_Book";
+            this.borrowBookBindingSource.DataSource = this.library1012DataSet2;
             // 
-            // hISTORYTableAdapter
+            // borrow_BookTableAdapter
             // 
-            this.hISTORYTableAdapter.ClearBeforeFill = true;
+            this.borrow_BookTableAdapter.ClearBeforeFill = true;
             // 
-            // btn_PrintDT
+            // iDRdDataGridViewTextBoxColumn
             // 
-            this.btn_PrintDT.Location = new System.Drawing.Point(1120, 448);
-            this.btn_PrintDT.Name = "btn_PrintDT";
-            this.btn_PrintDT.Size = new System.Drawing.Size(86, 81);
-            this.btn_PrintDT.TabIndex = 86;
-            this.btn_PrintDT.UseVisualStyleBackColor = true;
-            this.btn_PrintDT.Click += new System.EventHandler(this.btn_PrintDT_Click);
+            this.iDRdDataGridViewTextBoxColumn.DataPropertyName = "ID_Rd";
+            this.iDRdDataGridViewTextBoxColumn.HeaderText = "ID_Rd";
+            this.iDRdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDRdDataGridViewTextBoxColumn.Name = "iDRdDataGridViewTextBoxColumn";
+            this.iDRdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // iDBookDataGridViewTextBoxColumn
+            // 
+            this.iDBookDataGridViewTextBoxColumn.DataPropertyName = "ID_Book";
+            this.iDBookDataGridViewTextBoxColumn.HeaderText = "ID_Book";
+            this.iDBookDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDBookDataGridViewTextBoxColumn.Name = "iDBookDataGridViewTextBoxColumn";
+            this.iDBookDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // borroweddateDataGridViewTextBoxColumn
+            // 
+            this.borroweddateDataGridViewTextBoxColumn.DataPropertyName = "Borrowed_date";
+            this.borroweddateDataGridViewTextBoxColumn.HeaderText = "Borrowed_date";
+            this.borroweddateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.borroweddateDataGridViewTextBoxColumn.Name = "borroweddateDataGridViewTextBoxColumn";
+            this.borroweddateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // estimateddateDataGridViewTextBoxColumn
+            // 
+            this.estimateddateDataGridViewTextBoxColumn.DataPropertyName = "Estimated_date";
+            this.estimateddateDataGridViewTextBoxColumn.HeaderText = "Estimated_date";
+            this.estimateddateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.estimateddateDataGridViewTextBoxColumn.Name = "estimateddateDataGridViewTextBoxColumn";
+            this.estimateddateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // returneddateDataGridViewTextBoxColumn
+            // 
+            this.returneddateDataGridViewTextBoxColumn.DataPropertyName = "Returned_date";
+            this.returneddateDataGridViewTextBoxColumn.HeaderText = "Returned_date";
+            this.returneddateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.returneddateDataGridViewTextBoxColumn.Name = "returneddateDataGridViewTextBoxColumn";
+            this.returneddateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // extrafeeDataGridViewTextBoxColumn
+            // 
+            this.extrafeeDataGridViewTextBoxColumn.DataPropertyName = "Extra_fee";
+            this.extrafeeDataGridViewTextBoxColumn.HeaderText = "Extra_fee";
+            this.extrafeeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.extrafeeDataGridViewTextBoxColumn.Name = "extrafeeDataGridViewTextBoxColumn";
+            this.extrafeeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // currentstatusDataGridViewCheckBoxColumn
+            // 
+            this.currentstatusDataGridViewCheckBoxColumn.DataPropertyName = "Current_status";
+            this.currentstatusDataGridViewCheckBoxColumn.HeaderText = "Current_status";
+            this.currentstatusDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.currentstatusDataGridViewCheckBoxColumn.Name = "currentstatusDataGridViewCheckBoxColumn";
+            this.currentstatusDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // lossbookDataGridViewCheckBoxColumn
+            // 
+            this.lossbookDataGridViewCheckBoxColumn.DataPropertyName = "Loss_book";
+            this.lossbookDataGridViewCheckBoxColumn.HeaderText = "Loss_book";
+            this.lossbookDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.lossbookDataGridViewCheckBoxColumn.Name = "lossbookDataGridViewCheckBoxColumn";
+            this.lossbookDataGridViewCheckBoxColumn.Width = 125;
             // 
             // Borrow_Form
             // 
@@ -619,8 +697,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "History_Form";
             this.Load += new System.EventHandler(this.History_Form_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.aUTHORBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.library3DataSet)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel_infor.ResumeLayout(false);
             this.panel_infor.PerformLayout();
@@ -630,17 +706,13 @@
             this.panel_author.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHISTORY)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.library3DataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hISTORYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.library1012DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.borrowBookBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private library3DataSetTableAdapters.AUTHORTableAdapter aUTHORTableAdapter;
-        private System.Windows.Forms.BindingSource aUTHORBindingSource;
-        private library3DataSet library3DataSet;
         private System.Windows.Forms.Label label_Header;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_Add;
@@ -662,9 +734,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker Dtp_ReturnDate;
         private System.Windows.Forms.DateTimePicker Dtp_BorrowDate;
-        private library3DataSet2 library3DataSet2;
-        private System.Windows.Forms.BindingSource hISTORYBindingSource;
-        private library3DataSet2TableAdapters.HISTORYTableAdapter hISTORYTableAdapter;
         private System.Windows.Forms.DateTimePicker Dtp_Estimate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox Lb_typeFind;
@@ -688,5 +757,17 @@
         private System.Windows.Forms.TextBox txt_ExtraFee;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_PrintDT;
+        private System.Windows.Forms.Button button3;
+        private library1012DataSet2 library1012DataSet2;
+        private System.Windows.Forms.BindingSource borrowBookBindingSource;
+        private library1012DataSet2TableAdapters.Borrow_BookTableAdapter borrow_BookTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDRdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDBookDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn borroweddateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estimateddateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returneddateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn extrafeeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn currentstatusDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn lossbookDataGridViewCheckBoxColumn;
     }
 }

@@ -16,6 +16,7 @@ namespace Final_1__Library
     {
         public string UserName { get; set; }
         public string PassWord { get; set; }
-        public string Email { get; set; }
+        public string email { get; set; }
+        public Nullable<int> Type { get; set; }
     }
 }

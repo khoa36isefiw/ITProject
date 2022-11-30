@@ -13,9 +13,11 @@ namespace Final_1__Library.FORMS
 {
     public partial class Dashboard_Form : Form
     {
-        public Dashboard_Form()
+        public int Aucheck;
+        public Dashboard_Form(int Aucheck)
         {
             InitializeComponent();
+            this.Aucheck = Aucheck;
         }
 
         private void Dashboard_Form_Load(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace Final_1__Library.FORMS
             btn_Users.Image = Image.FromFile("../../IMAGES/user_button_official.png");
             btn_Employees.Image = Image.FromFile("../../IMAGES/Employee_button.png");
 
-            library1010Entities2 myDB = new library1010Entities2();
+            QuanLyThuVienEntities myDB = new QuanLyThuVienEntities();
             DataTable dtBo = new DataTable();
             DataTable dtAu = new DataTable();
             DataTable dtRe = new DataTable();
@@ -51,6 +53,24 @@ namespace Final_1__Library.FORMS
             dtEm = myEmployee.Take_Employee();
             Lb_Employee.Text = dtEm.Rows.Count.ToString();
 
+            if (this.Aucheck == 1)
+            {
+                this.btn_Author.Enabled = true;
+                this.btn_Books.Enabled = true;
+                this.btn_Circulation.Enabled = true;
+                this.btn_Employees.Enabled = true;
+                this.btn_Genres.Enabled = true;
+                this.btn_Users.Enabled = true;
+            }
+            if (this.Aucheck == 2)
+            {
+                this.btn_Author.Enabled = false;
+                this.btn_Books.Enabled = false;
+                this.btn_Circulation.Enabled = true;
+                this.btn_Employees.Enabled = false;
+                this.btn_Genres.Enabled = false;
+                this.btn_Users.Enabled = true;
+            }
 
         }
 
@@ -66,11 +86,11 @@ namespace Final_1__Library.FORMS
 
         private void Dashboard_Form_Shown(object sender, EventArgs e)
         {
-            this.Enabled = false;
+            //this.Enabled = false;
 
             // show the login form
-            Login_Form login_Form = new Login_Form(this);
-            login_Form.Show();
+            //Login_Form login_Form = new Login_Form(this);
+            //login_Form.Show();
         }
 
         private void btn_Genres_Click(object sender, EventArgs e)

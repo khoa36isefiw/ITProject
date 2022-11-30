@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_signup = new System.Windows.Forms.Button();
             this.Btn_forget = new System.Windows.Forms.Button();
             this.btn_Login = new System.Windows.Forms.Button();
             this.txt_Pass = new System.Windows.Forms.TextBox();
@@ -37,7 +38,8 @@
             this.pictureBox_User = new System.Windows.Forms.PictureBox();
             this.Label_Close = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_signup = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_User)).BeginInit();
@@ -45,6 +47,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.checkBox2);
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.btn_signup);
             this.panel1.Controls.Add(this.Btn_forget);
             this.panel1.Controls.Add(this.btn_Login);
@@ -60,6 +64,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(706, 453);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btn_signup
+            // 
+            this.btn_signup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(103)))), ((int)(((byte)(46)))));
+            this.btn_signup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_signup.ForeColor = System.Drawing.Color.White;
+            this.btn_signup.Location = new System.Drawing.Point(388, 342);
+            this.btn_signup.Name = "btn_signup";
+            this.btn_signup.Size = new System.Drawing.Size(196, 70);
+            this.btn_signup.TabIndex = 8;
+            this.btn_signup.Text = "Sign Up";
+            this.btn_signup.UseVisualStyleBackColor = false;
+            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
             // 
             // Btn_forget
             // 
@@ -82,7 +101,7 @@
             this.btn_Login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Login.ForeColor = System.Drawing.Color.White;
-            this.btn_Login.Location = new System.Drawing.Point(109, 330);
+            this.btn_Login.Location = new System.Drawing.Point(81, 342);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(196, 70);
             this.btn_Login.TabIndex = 6;
@@ -156,19 +175,31 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // btn_signup
+            // checkBox1
             // 
-            this.btn_signup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(103)))), ((int)(((byte)(46)))));
-            this.btn_signup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_signup.ForeColor = System.Drawing.Color.White;
-            this.btn_signup.Location = new System.Drawing.Point(411, 330);
-            this.btn_signup.Name = "btn_signup";
-            this.btn_signup.Size = new System.Drawing.Size(196, 70);
-            this.btn_signup.TabIndex = 8;
-            this.btn_signup.Text = "Sign Up";
-            this.btn_signup.UseVisualStyleBackColor = false;
-            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Lato", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkBox1.Location = new System.Drawing.Point(388, 311);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(100, 25);
+            this.checkBox1.TabIndex = 11;
+            this.checkBox1.Text = "Employee";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Lato", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkBox2.Location = new System.Drawing.Point(81, 311);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(95, 25);
+            this.checkBox2.TabIndex = 12;
+            this.checkBox2.Text = "Manager";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // Login_Form
             // 
@@ -202,5 +233,7 @@
         private System.Windows.Forms.PictureBox pictureBox_User;
         private System.Windows.Forms.Button Btn_forget;
         private System.Windows.Forms.Button btn_signup;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

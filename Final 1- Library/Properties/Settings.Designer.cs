@@ -44,5 +44,16 @@ namespace Final_1__Library.Properties {
                 return ((string)(this["library1010ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-I5LO70H\\SQLEXPRESS;Initial Catalog=library1012;Integrated Sec" +
+            "urity=True")]
+        public string library1012ConnectionString {
+            get {
+                return ((string)(this["library1012ConnectionString"]));
+            }
+        }
     }
 }

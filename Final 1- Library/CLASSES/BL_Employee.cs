@@ -12,7 +12,7 @@ namespace Final_1__Library.CLASSES
 
         public DataTable Take_Employee()
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps =
             from p in qltvEntity.EMPLOYEES
             select p;
@@ -30,14 +30,14 @@ namespace Final_1__Library.CLASSES
 
             foreach (var p in tps)
             {
-                dt.Rows.Add(p.ID_Employee, p.Name, p.Gender, p.CCCD, p.Phone, p.Address, p.Position, p.Salary, p.Working_Time, p.Extra);
+                dt.Rows.Add(p.ID_Employee, p.Name, p.Gender, p.CCCD, p.Phone, p.Address, p.Position, p.Salary, p.Working_time, p.Extra);
             }
 
             return dt;
         }
-        public bool Add_Employee(string id, string name, string gender, int cccd, int phone, string address, string position, int workingtime, int extra)
+        public bool Add_Employee(int id, string name, string gender, int cccd, int phone, string address, string position, int workingtime, int extra)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             int salary = 0;
             EMPLOYEE employee = new EMPLOYEE();
             if (position == "Cashier")
@@ -63,7 +63,7 @@ namespace Final_1__Library.CLASSES
             employee.Address = address;
             employee.Position = position;
             employee.Salary = salary;
-            employee.Working_Time = workingtime;
+            employee.Working_time = workingtime;
             employee.Extra = extra;
             qltvEntity.EMPLOYEES.Add(employee);
             qltvEntity.SaveChanges();
@@ -72,9 +72,9 @@ namespace Final_1__Library.CLASSES
 
         }
 
-        public bool Edit_Employee(string id, string name, string gender, int cccd, int phone, string address, string position, int workingtime, int extra)
+        public bool Edit_Employee(int id, string name, string gender, int cccd, int phone, string address, string position, int workingtime, int extra)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tpQuery = (from p in qltvEntity.EMPLOYEES
                            where p.ID_Employee == id
                            select p).SingleOrDefault();
@@ -104,15 +104,15 @@ namespace Final_1__Library.CLASSES
                 tpQuery.Address = address;
                 tpQuery.Position = position;
                 tpQuery.Salary = salary;
-                tpQuery.Working_Time = workingtime;
+                tpQuery.Working_time = workingtime;
                 tpQuery.Extra = extra;
                 qltvEntity.SaveChanges();
             }
             return true;
         }
-        public DataTable GetObjectByID(string id)
+        public DataTable GetObjectByID(int id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.EMPLOYEES
                        where p.ID_Employee == id
                        select p) ;
@@ -129,13 +129,13 @@ namespace Final_1__Library.CLASSES
             dt.Columns.Add("Extra");
             foreach (var p in tps)
             {
-                dt.Rows.Add(p.ID_Employee, p.Name, p.Gender, p.CCCD, p.Phone, p.Address, p.Position, p.Salary, p.Working_Time, p.Extra);
+                dt.Rows.Add(p.ID_Employee, p.Name, p.Gender, p.CCCD, p.Phone, p.Address, p.Position, p.Salary, p.Working_time, p.Extra);
             }
             return dt;
         }
         public DataTable GetObjectByName(string name)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.EMPLOYEES
                        where p.Name == name
                        select p);
@@ -152,13 +152,13 @@ namespace Final_1__Library.CLASSES
             dt.Columns.Add("Extra");
             foreach (var p in tps)
             {
-                dt.Rows.Add(p.ID_Employee, p.Name, p.Gender, p.CCCD, p.Phone, p.Address, p.Position, p.Salary, p.Working_Time, p.Extra);
+                dt.Rows.Add(p.ID_Employee, p.Name, p.Gender, p.CCCD, p.Phone, p.Address, p.Position, p.Salary, p.Working_time, p.Extra);
             }
             return dt;
         }
         public DataTable GetObjectByCCCD(int cccd)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.EMPLOYEES
                        where p.CCCD == cccd
                        select p);
@@ -175,13 +175,13 @@ namespace Final_1__Library.CLASSES
             dt.Columns.Add("Extra");
             foreach (var p in tps)
             {
-                dt.Rows.Add(p.ID_Employee, p.Name, p.Gender, p.CCCD, p.Phone, p.Address, p.Position, p.Salary, p.Working_Time, p.Extra);
+                dt.Rows.Add(p.ID_Employee, p.Name, p.Gender, p.CCCD, p.Phone, p.Address, p.Position, p.Salary, p.Working_time, p.Extra);
             }
             return dt;
         }
         public DataTable GetObjectByPosition(string id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.EMPLOYEES
                        where p.Position == id
                        select p);
@@ -198,13 +198,13 @@ namespace Final_1__Library.CLASSES
             dt.Columns.Add("Extra");
             foreach (var p in tps)
             {
-                dt.Rows.Add(p.ID_Employee, p.Name, p.Gender, p.CCCD, p.Phone, p.Address, p.Position, p.Salary, p.Working_Time, p.Extra);
+                dt.Rows.Add(p.ID_Employee, p.Name, p.Gender, p.CCCD, p.Phone, p.Address, p.Position, p.Salary, p.Working_time, p.Extra);
             }
             return dt;
         }
-        public bool Delete_Employee(string id, string name)
+        public bool Delete_Employee(int id, string name)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
 
             EMPLOYEE employee = new EMPLOYEE();
             employee.ID_Employee = id;

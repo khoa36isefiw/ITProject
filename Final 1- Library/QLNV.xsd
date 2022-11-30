@@ -56,7 +56,7 @@ SELECT [ID Employee], Name, Gender, CCCD, Phone, Address, Position, Salary, [Wor
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT [ID Employee], Name, Gender, CCCD, Phone, Address, Position, Salary, [Working Time], Extra FROM dbo.EMPLOYEES</CommandText>
+                    <CommandText>SELECT IDEmployee, Name, Gender, CCCD, Phone, Address, Position, Salary, WorkingTime, Extra, [ID Employee] FROM EMPLOYEES WHERE ([Working Time] &gt;= 100)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -100,7 +100,7 @@ SELECT [ID Employee], Name, Gender, CCCD, Phone, Address, Position, Salary, [Wor
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="ID Employee" DataSetColumn="ID Employee" />
+              <Mapping SourceColumn="ID Employee" DataSetColumn="IDEmployee" />
               <Mapping SourceColumn="Name" DataSetColumn="Name" />
               <Mapping SourceColumn="Gender" DataSetColumn="Gender" />
               <Mapping SourceColumn="CCCD" DataSetColumn="CCCD" />
@@ -108,7 +108,7 @@ SELECT [ID Employee], Name, Gender, CCCD, Phone, Address, Position, Salary, [Wor
               <Mapping SourceColumn="Address" DataSetColumn="Address" />
               <Mapping SourceColumn="Position" DataSetColumn="Position" />
               <Mapping SourceColumn="Salary" DataSetColumn="Salary" />
-              <Mapping SourceColumn="Working Time" DataSetColumn="Working Time" />
+              <Mapping SourceColumn="Working Time" DataSetColumn="WorkingTime" />
               <Mapping SourceColumn="Extra" DataSetColumn="Extra" />
             </Mappings>
             <Sources />
@@ -118,52 +118,52 @@ SELECT [ID Employee], Name, Gender, CCCD, Phone, Address, Position, Salary, [Wor
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="QLNV" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="QLNV" msprop:Generator_DataSetName="QLNV">
+  <xs:element name="QLNV" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="QLNV" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="QLNV">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="EMPLOYEES" msprop:Generator_RowEvHandlerName="EMPLOYEESRowChangeEventHandler" msprop:Generator_RowDeletedName="EMPLOYEESRowDeleted" msprop:Generator_RowDeletingName="EMPLOYEESRowDeleting" msprop:Generator_RowEvArgName="EMPLOYEESRowChangeEvent" msprop:Generator_TablePropName="EMPLOYEES" msprop:Generator_RowChangedName="EMPLOYEESRowChanged" msprop:Generator_RowChangingName="EMPLOYEESRowChanging" msprop:Generator_TableClassName="EMPLOYEESDataTable" msprop:Generator_RowClassName="EMPLOYEESRow" msprop:Generator_TableVarName="tableEMPLOYEES" msprop:Generator_UserTableName="EMPLOYEES">
+        <xs:element name="EMPLOYEES" msprop:Generator_RowClassName="EMPLOYEESRow" msprop:Generator_RowEvHandlerName="EMPLOYEESRowChangeEventHandler" msprop:Generator_RowDeletedName="EMPLOYEESRowDeleted" msprop:Generator_RowDeletingName="EMPLOYEESRowDeleting" msprop:Generator_RowEvArgName="EMPLOYEESRowChangeEvent" msprop:Generator_TablePropName="EMPLOYEES" msprop:Generator_RowChangedName="EMPLOYEESRowChanged" msprop:Generator_UserTableName="EMPLOYEES" msprop:Generator_RowChangingName="EMPLOYEESRowChanging" msprop:Generator_TableClassName="EMPLOYEESDataTable" msprop:Generator_TableVarName="tableEMPLOYEES">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_x0020_Employee" msprop:Generator_ColumnPropNameInRow="ID_Employee" msprop:Generator_ColumnPropNameInTable="ID_EmployeeColumn" msprop:Generator_ColumnVarNameInTable="columnID_Employee" msprop:Generator_UserColumnName="ID Employee">
+              <xs:element name="IDEmployee" msprop:Generator_UserColumnName="IDEmployee" msprop:Generator_ColumnPropNameInTable="IDEmployeeColumn" msprop:Generator_ColumnPropNameInRow="IDEmployee" msprop:Generator_ColumnVarNameInTable="columnIDEmployee">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_UserColumnName="Name" minOccurs="0">
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Gender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_UserColumnName="Gender" minOccurs="0">
+              <xs:element name="Gender" msprop:Generator_UserColumnName="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CCCD" msprop:Generator_ColumnPropNameInRow="CCCD" msprop:Generator_ColumnPropNameInTable="CCCDColumn" msprop:Generator_ColumnVarNameInTable="columnCCCD" msprop:Generator_UserColumnName="CCCD" type="xs:int" minOccurs="0" />
-              <xs:element name="Phone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_UserColumnName="Phone" type="xs:int" minOccurs="0" />
-              <xs:element name="Address" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_UserColumnName="Address" minOccurs="0">
+              <xs:element name="CCCD" msprop:Generator_UserColumnName="CCCD" msprop:Generator_ColumnPropNameInTable="CCCDColumn" msprop:Generator_ColumnPropNameInRow="CCCD" msprop:Generator_ColumnVarNameInTable="columnCCCD" type="xs:int" minOccurs="0" />
+              <xs:element name="Phone" msprop:Generator_UserColumnName="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" type="xs:int" minOccurs="0" />
+              <xs:element name="Address" msprop:Generator_UserColumnName="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Position" msprop:Generator_ColumnPropNameInRow="Position" msprop:Generator_ColumnPropNameInTable="PositionColumn" msprop:Generator_ColumnVarNameInTable="columnPosition" msprop:Generator_UserColumnName="Position" minOccurs="0">
+              <xs:element name="Position" msprop:Generator_UserColumnName="Position" msprop:Generator_ColumnPropNameInTable="PositionColumn" msprop:Generator_ColumnPropNameInRow="Position" msprop:Generator_ColumnVarNameInTable="columnPosition" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Salary" msprop:Generator_ColumnPropNameInRow="Salary" msprop:Generator_ColumnPropNameInTable="SalaryColumn" msprop:Generator_ColumnVarNameInTable="columnSalary" msprop:Generator_UserColumnName="Salary" type="xs:int" minOccurs="0" />
-              <xs:element name="Working_x0020_Time" msprop:Generator_ColumnPropNameInRow="Working_Time" msprop:Generator_ColumnPropNameInTable="Working_TimeColumn" msprop:Generator_ColumnVarNameInTable="columnWorking_Time" msprop:Generator_UserColumnName="Working Time" type="xs:int" minOccurs="0" />
-              <xs:element name="Extra" msprop:Generator_ColumnPropNameInRow="Extra" msprop:Generator_ColumnPropNameInTable="ExtraColumn" msprop:Generator_ColumnVarNameInTable="columnExtra" msprop:Generator_UserColumnName="Extra" type="xs:int" minOccurs="0" />
+              <xs:element name="Salary" msprop:Generator_UserColumnName="Salary" msprop:Generator_ColumnPropNameInTable="SalaryColumn" msprop:Generator_ColumnPropNameInRow="Salary" msprop:Generator_ColumnVarNameInTable="columnSalary" type="xs:int" minOccurs="0" />
+              <xs:element name="WorkingTime" msprop:Generator_UserColumnName="WorkingTime" msprop:Generator_ColumnPropNameInTable="WorkingTimeColumn" msprop:Generator_ColumnPropNameInRow="WorkingTime" msprop:Generator_ColumnVarNameInTable="columnWorkingTime" type="xs:int" minOccurs="0" />
+              <xs:element name="Extra" msprop:Generator_UserColumnName="Extra" msprop:Generator_ColumnPropNameInTable="ExtraColumn" msprop:Generator_ColumnPropNameInRow="Extra" msprop:Generator_ColumnVarNameInTable="columnExtra" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -171,7 +171,7 @@ SELECT [ID Employee], Name, Gender, CCCD, Phone, Address, Position, Salary, [Wor
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:EMPLOYEES" />
-      <xs:field xpath="mstns:ID_x0020_Employee" />
+      <xs:field xpath="mstns:IDEmployee" />
     </xs:unique>
   </xs:element>
 </xs:schema>

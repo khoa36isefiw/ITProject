@@ -11,16 +11,16 @@ namespace Final_1__Library.CLASSES
     {
         public DataTable Take_BorrowedBook()
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps =
             from p in qltvEntity.Borrow_Book
             select p;
             DataTable dt = new DataTable();
-            dt.Columns.Add("ID_Reader");
+            dt.Columns.Add("ID_Rd");
             dt.Columns.Add("ID_Book");
             dt.Columns.Add("Borrowed_date");
             dt.Columns.Add("Estimated_date");
-            dt.Columns.Add("Return_date");
+            dt.Columns.Add("Returned_date");
             dt.Columns.Add("Extra_fee");
             dt.Columns.Add("Current_status");
             dt.Columns.Add("Loss_book");
@@ -34,7 +34,7 @@ namespace Final_1__Library.CLASSES
         
         public DataTable GetObjectByIDReader(int id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.Borrow_Book
                        where p.ID_Rd == id
                        select p);
@@ -56,7 +56,7 @@ namespace Final_1__Library.CLASSES
         }
         public void deleteAllId(int id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             DataTable dt = new DataTable();
             dt = GetObjectByIDBook(id);
             Borrow_Book borrow_book = new Borrow_Book();
@@ -75,7 +75,7 @@ namespace Final_1__Library.CLASSES
 
         public DataTable GetObjectByIDBook(int id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.Borrow_Book
                        where p.ID_Book == id
                        select p);
@@ -97,7 +97,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Add_BorrowedBookreturn(int id_reader, int id_book, DateTime borrow_time,DateTime estimated_time, DateTime return_time,bool current_status,bool loss_book)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
 
             Borrow_Book borrow_Book = new Borrow_Book();
             borrow_Book.ID_Rd = id_reader;
@@ -116,7 +116,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Add_BorrowedBooknotreturn(int id_reader, int id_book, DateTime borrow_time, DateTime estimated_time)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
 
             Borrow_Book borrow_Book = new Borrow_Book();
             borrow_Book.ID_Rd = id_reader;
@@ -131,7 +131,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Edit_BorrowedBook(int id_reader, int id_book, DateTime borrow_time, DateTime estimated_time, DateTime return_time, bool current_status, bool loss_book)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tpQuery = (from p in qltvEntity.Borrow_Book
                            where p.ID_Rd == id_reader && p.ID_Book == id_book
                             select p).FirstOrDefault();
@@ -161,7 +161,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Delete_BorrowedBook(int id_reader, int id_book)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
 
             Borrow_Book borrow_book = new Borrow_Book();
             borrow_book.ID_Rd = id_reader;

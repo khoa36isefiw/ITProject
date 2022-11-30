@@ -11,7 +11,7 @@ namespace Final_1__Library.CLASSES
     {
         public DataTable TakeAuthor()
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps =
             from p in qltvEntity.AUTHORs
             select p;
@@ -29,7 +29,7 @@ namespace Final_1__Library.CLASSES
         }
         public DataTable GetObjectByID(int id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.AUTHORs
                        where p.ID_author == id
                        select p);
@@ -47,7 +47,7 @@ namespace Final_1__Library.CLASSES
         }
         public DataTable GetObjectByName(string name)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tps = (from p in qltvEntity.AUTHORs
                        where p.Name == name
                        select p);
@@ -65,7 +65,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool AddAuthor(int id, string name,int phone , string address)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
 
             AUTHOR author = new AUTHOR();
             author.ID_author = id;
@@ -80,7 +80,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool EditAuthor(int id, string name, int phone, string address)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
             var tpQuery = (from p in qltvEntity.AUTHORs
                            where p.ID_author == id
                            select p).SingleOrDefault();
@@ -95,7 +95,7 @@ namespace Final_1__Library.CLASSES
         }
         public bool Delete_Author(int id)
         {
-            library1010Entities2 qltvEntity = new library1010Entities2();
+            QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities();
 
             AUTHOR author = new AUTHOR();
             BL_Book dbBo = new BL_Book();

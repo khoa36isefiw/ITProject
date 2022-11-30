@@ -34,6 +34,7 @@
             this.btn_Employee = new System.Windows.Forms.Button();
             this.Label_Close = new System.Windows.Forms.Label();
             this.panel_author = new System.Windows.Forms.Panel();
+            this.btn_PrintDT = new System.Windows.Forms.Button();
             this.btn_report = new System.Windows.Forms.Button();
             this.Rb_Accountant = new System.Windows.Forms.RadioButton();
             this.Rb_Guard = new System.Windows.Forms.RadioButton();
@@ -80,7 +81,6 @@
             this.library1010DataSet = new Final_1__Library.library1010DataSet();
             this.eMPLOYEESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMPLOYEESTableAdapter = new Final_1__Library.library1010DataSetTableAdapters.EMPLOYEESTableAdapter();
-            this.btn_PrintDT = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel_author.SuspendLayout();
             this.panel_infor.SuspendLayout();
@@ -118,7 +118,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1447, 705);
+            this.panel1.Size = new System.Drawing.Size(1593, 705);
             this.panel1.TabIndex = 3;
             // 
             // btn_Employee
@@ -138,7 +138,7 @@
             this.Label_Close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Label_Close.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Close.ForeColor = System.Drawing.Color.White;
-            this.Label_Close.Location = new System.Drawing.Point(1368, 48);
+            this.Label_Close.Location = new System.Drawing.Point(1513, 48);
             this.Label_Close.Name = "Label_Close";
             this.Label_Close.Size = new System.Drawing.Size(47, 43);
             this.Label_Close.TabIndex = 4;
@@ -165,8 +165,17 @@
             this.panel_author.Controls.Add(this.dgvEMPLOYEE);
             this.panel_author.Location = new System.Drawing.Point(223, 140);
             this.panel_author.Name = "panel_author";
-            this.panel_author.Size = new System.Drawing.Size(1224, 564);
+            this.panel_author.Size = new System.Drawing.Size(1367, 564);
             this.panel_author.TabIndex = 6;
+            // 
+            // btn_PrintDT
+            // 
+            this.btn_PrintDT.Location = new System.Drawing.Point(1079, 468);
+            this.btn_PrintDT.Name = "btn_PrintDT";
+            this.btn_PrintDT.Size = new System.Drawing.Size(86, 81);
+            this.btn_PrintDT.TabIndex = 85;
+            this.btn_PrintDT.UseVisualStyleBackColor = true;
+            this.btn_PrintDT.Click += new System.EventHandler(this.btn_PrintDT_Click);
             // 
             // btn_report
             // 
@@ -225,7 +234,7 @@
             // 
             // Btn_Find
             // 
-            this.Btn_Find.Location = new System.Drawing.Point(1079, 2);
+            this.Btn_Find.Location = new System.Drawing.Point(1224, 6);
             this.Btn_Find.Name = "Btn_Find";
             this.Btn_Find.Size = new System.Drawing.Size(134, 39);
             this.Btn_Find.TabIndex = 69;
@@ -235,11 +244,11 @@
             // 
             // txt_Find
             // 
-            this.txt_Find.Location = new System.Drawing.Point(869, 5);
+            this.txt_Find.Location = new System.Drawing.Point(883, 9);
             this.txt_Find.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Find.Multiline = true;
             this.txt_Find.Name = "txt_Find";
-            this.txt_Find.Size = new System.Drawing.Size(205, 36);
+            this.txt_Find.Size = new System.Drawing.Size(309, 36);
             this.txt_Find.TabIndex = 68;
             // 
             // label11
@@ -491,7 +500,7 @@
             this.dgvEMPLOYEE.Name = "dgvEMPLOYEE";
             this.dgvEMPLOYEE.RowHeadersWidth = 51;
             this.dgvEMPLOYEE.RowTemplate.Height = 24;
-            this.dgvEMPLOYEE.Size = new System.Drawing.Size(674, 401);
+            this.dgvEMPLOYEE.Size = new System.Drawing.Size(817, 401);
             this.dgvEMPLOYEE.TabIndex = 0;
             this.dgvEMPLOYEE.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEMPLOYEE_CellContentClick);
             // 
@@ -562,7 +571,7 @@
             this.label_Header.ForeColor = System.Drawing.Color.White;
             this.label_Header.Location = new System.Drawing.Point(0, 0);
             this.label_Header.Name = "label_Header";
-            this.label_Header.Size = new System.Drawing.Size(1447, 137);
+            this.label_Header.Size = new System.Drawing.Size(1593, 137);
             this.label_Header.TabIndex = 4;
             this.label_Header.Text = "    Employee";
             this.label_Header.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -610,20 +619,11 @@
             // 
             this.eMPLOYEESTableAdapter.ClearBeforeFill = true;
             // 
-            // btn_PrintDT
-            // 
-            this.btn_PrintDT.Location = new System.Drawing.Point(1079, 468);
-            this.btn_PrintDT.Name = "btn_PrintDT";
-            this.btn_PrintDT.Size = new System.Drawing.Size(86, 81);
-            this.btn_PrintDT.TabIndex = 85;
-            this.btn_PrintDT.UseVisualStyleBackColor = true;
-            this.btn_PrintDT.Click += new System.EventHandler(this.btn_PrintDT_Click);
-            // 
             // Employee_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1447, 705);
+            this.ClientSize = new System.Drawing.Size(1593, 705);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Employee_Form";

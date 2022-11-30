@@ -11,7 +11,7 @@ namespace Final_1__Library.FORMS
         bool AddTerm;
         bool Lost ;
         bool Fixed ;
-        //bool returnterm;
+        bool returnterm;
         BL_BorrowedBook dbHi = new BL_BorrowedBook();
         public Borrow_Form()
         {
@@ -126,8 +126,10 @@ namespace Final_1__Library.FORMS
 
         private void History_Form_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'library1012DataSet2.Borrow_Book' table. You can move, or remove it, as needed.
+            this.borrow_BookTableAdapter.Fill(this.library1012DataSet2.Borrow_Book);
             // TODO: This line of code loads data into the 'library3DataSet2.HISTORY' table. You can move, or remove it, as needed.
-            this.hISTORYTableAdapter.Fill(this.library3DataSet2.HISTORY);
+            //this.hISTORYTableAdapter.Fill(this.library3DataSet2.HISTORY);
             btn_Author.Image = Image.FromFile("../../IMAGES/history.png");
             btn_Add.Image = Image.FromFile("../../IMAGES/add-file.png");
             btn_Edit.Image = Image.FromFile("../../IMAGES/edit.png");
@@ -206,7 +208,7 @@ namespace Final_1__Library.FORMS
                     BL_Book book = new BL_Book();
                     reader.ChangeNBrBook(int.Parse(this.txt_IDReader.Text), 1);
                     book.Changenbook(int.Parse(this.txt_IDBook.Text), 2);
-                    LoadData(0);
+                    LoadData(3);
                     // Thông báo
                     MessageBox.Show("Added!");
                 }
@@ -221,7 +223,7 @@ namespace Final_1__Library.FORMS
                 BL_BorrowedBook dbHi = new BL_BorrowedBook();
                 dbHi.Edit_BorrowedBook(int.Parse(this.txt_IDReader.Text), int.Parse(this.txt_IDBook.Text), this.Dtp_BorrowDate.Value, this.Dtp_Estimate.Value, this.Dtp_ReturnDate.Value, Lost, Fixed);
                 // Load lại dữ liệu trên DataGridView
-                LoadData(3);
+                LoadData(0);
                
                 // Thông báo
                 MessageBox.Show("Fixed!");
@@ -410,12 +412,18 @@ namespace Final_1__Library.FORMS
         }
         private void btn_print_Click(object sender, EventArgs e)
         {
-            LoadData(0);
+            //LoadData(0);
+            this.txt_ExtraFee.Text = dbHi.cal_ExtraFee(int.Parse(this.txt_IDReader.Text), int.Parse(this.txt_IDBook.Text), this.Dtp_BorrowDate.Value, this.Dtp_Estimate.Value, this.Dtp_ReturnDate.Value, this.Cb_Origin.Checked, this.Cb_Lost.Checked).ToString();
             this.txt_Calborrow.Text = cal_BorrowBook(int.Parse(this.txt_IDReader.Text), int.Parse(this.txt_IDBook.Text), this.Dtp_BorrowDate.Value, this.Dtp_ReturnDate.Value, this.Dtp_Estimate.Value, this.Cb_Origin.Checked, this.Cb_Lost.Checked).ToString();
+            
             System.Drawing.Printing.PrintDocument doc = new System.Drawing.Printing.PrintDocument();
             doc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(doc_PrintPage);
             doc.Print();
             dbHi.Delete_BorrowedBook(int.Parse(this.txt_IDReader.Text), int.Parse(this.txt_IDBook.Text));
+            BL_Reader reader = new BL_Reader();
+            BL_Book book = new BL_Book();
+            reader.ChangeNBrBook(int.Parse(this.txt_IDReader.Text), 2);
+            book.Changenbook(int.Parse(this.txt_IDBook.Text), 1);
             LoadData(3);
         }
 
@@ -473,6 +481,12 @@ namespace Final_1__Library.FORMS
             System.Drawing.Printing.PrintDocument doc = new System.Drawing.Printing.PrintDocument();
             doc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(doc_PrintPage2);
             doc.Print();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Report_Form report_Form = new Report_Form();
+            report_Form.Show();
         }
     }
 }

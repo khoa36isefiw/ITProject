@@ -279,7 +279,7 @@ namespace Final_1__Library {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class EMPLOYEESDataTable : global::System.Data.TypedTableBase<EMPLOYEESRow> {
             
-            private global::System.Data.DataColumn columnID_Employee;
+            private global::System.Data.DataColumn columnIDEmployee;
             
             private global::System.Data.DataColumn columnName;
             
@@ -295,7 +295,7 @@ namespace Final_1__Library {
             
             private global::System.Data.DataColumn columnSalary;
             
-            private global::System.Data.DataColumn columnWorking_Time;
+            private global::System.Data.DataColumn columnWorkingTime;
             
             private global::System.Data.DataColumn columnExtra;
             
@@ -334,9 +334,9 @@ namespace Final_1__Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ID_EmployeeColumn {
+            public global::System.Data.DataColumn IDEmployeeColumn {
                 get {
-                    return this.columnID_Employee;
+                    return this.columnIDEmployee;
                 }
             }
             
@@ -398,9 +398,9 @@ namespace Final_1__Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Working_TimeColumn {
+            public global::System.Data.DataColumn WorkingTimeColumn {
                 get {
-                    return this.columnWorking_Time;
+                    return this.columnWorkingTime;
                 }
             }
             
@@ -449,10 +449,10 @@ namespace Final_1__Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public EMPLOYEESRow AddEMPLOYEESRow(string ID_Employee, string Name, string Gender, int CCCD, int Phone, string Address, string Position, int Salary, int Working_Time, int Extra) {
+            public EMPLOYEESRow AddEMPLOYEESRow(string IDEmployee, string Name, string Gender, int CCCD, int Phone, string Address, string Position, int Salary, int WorkingTime, int Extra) {
                 EMPLOYEESRow rowEMPLOYEESRow = ((EMPLOYEESRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID_Employee,
+                        IDEmployee,
                         Name,
                         Gender,
                         CCCD,
@@ -460,7 +460,7 @@ namespace Final_1__Library {
                         Address,
                         Position,
                         Salary,
-                        Working_Time,
+                        WorkingTime,
                         Extra};
                 rowEMPLOYEESRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEMPLOYEESRow);
@@ -469,9 +469,9 @@ namespace Final_1__Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public EMPLOYEESRow FindByID_Employee(string ID_Employee) {
+            public EMPLOYEESRow FindByIDEmployee(string IDEmployee) {
                 return ((EMPLOYEESRow)(this.Rows.Find(new object[] {
-                            ID_Employee})));
+                            IDEmployee})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,7 +491,7 @@ namespace Final_1__Library {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnID_Employee = base.Columns["ID Employee"];
+                this.columnIDEmployee = base.Columns["IDEmployee"];
                 this.columnName = base.Columns["Name"];
                 this.columnGender = base.Columns["Gender"];
                 this.columnCCCD = base.Columns["CCCD"];
@@ -499,15 +499,15 @@ namespace Final_1__Library {
                 this.columnAddress = base.Columns["Address"];
                 this.columnPosition = base.Columns["Position"];
                 this.columnSalary = base.Columns["Salary"];
-                this.columnWorking_Time = base.Columns["Working Time"];
+                this.columnWorkingTime = base.Columns["WorkingTime"];
                 this.columnExtra = base.Columns["Extra"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnID_Employee = new global::System.Data.DataColumn("ID Employee", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_Employee);
+                this.columnIDEmployee = new global::System.Data.DataColumn("IDEmployee", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDEmployee);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
                 this.columnGender = new global::System.Data.DataColumn("Gender", typeof(string), null, global::System.Data.MappingType.Element);
@@ -522,15 +522,15 @@ namespace Final_1__Library {
                 base.Columns.Add(this.columnPosition);
                 this.columnSalary = new global::System.Data.DataColumn("Salary", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSalary);
-                this.columnWorking_Time = new global::System.Data.DataColumn("Working Time", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWorking_Time);
+                this.columnWorkingTime = new global::System.Data.DataColumn("WorkingTime", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkingTime);
                 this.columnExtra = new global::System.Data.DataColumn("Extra", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExtra);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID_Employee}, true));
-                this.columnID_Employee.AllowDBNull = false;
-                this.columnID_Employee.Unique = true;
-                this.columnID_Employee.MaxLength = 20;
+                                this.columnIDEmployee}, true));
+                this.columnIDEmployee.AllowDBNull = false;
+                this.columnIDEmployee.Unique = true;
+                this.columnIDEmployee.MaxLength = 20;
                 this.columnName.MaxLength = 20;
                 this.columnGender.MaxLength = 10;
                 this.columnAddress.MaxLength = 20;
@@ -677,12 +677,12 @@ namespace Final_1__Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ID_Employee {
+            public string IDEmployee {
                 get {
-                    return ((string)(this[this.tableEMPLOYEES.ID_EmployeeColumn]));
+                    return ((string)(this[this.tableEMPLOYEES.IDEmployeeColumn]));
                 }
                 set {
-                    this[this.tableEMPLOYEES.ID_EmployeeColumn] = value;
+                    this[this.tableEMPLOYEES.IDEmployeeColumn] = value;
                 }
             }
             
@@ -800,17 +800,17 @@ namespace Final_1__Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Working_Time {
+            public int WorkingTime {
                 get {
                     try {
-                        return ((int)(this[this.tableEMPLOYEES.Working_TimeColumn]));
+                        return ((int)(this[this.tableEMPLOYEES.WorkingTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Working Time\' in table \'EMPLOYEES\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkingTime\' in table \'EMPLOYEES\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableEMPLOYEES.Working_TimeColumn] = value;
+                    this[this.tableEMPLOYEES.WorkingTimeColumn] = value;
                 }
             }
             
@@ -916,14 +916,14 @@ namespace Final_1__Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsWorking_TimeNull() {
-                return this.IsNull(this.tableEMPLOYEES.Working_TimeColumn);
+            public bool IsWorkingTimeNull() {
+                return this.IsNull(this.tableEMPLOYEES.WorkingTimeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetWorking_TimeNull() {
-                this[this.tableEMPLOYEES.Working_TimeColumn] = global::System.Convert.DBNull;
+            public void SetWorkingTimeNull() {
+                this[this.tableEMPLOYEES.WorkingTimeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1098,7 +1098,7 @@ namespace Final_1__Library.QLNVTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "EMPLOYEES";
-            tableMapping.ColumnMappings.Add("ID Employee", "ID Employee");
+            tableMapping.ColumnMappings.Add("ID Employee", "IDEmployee");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Gender", "Gender");
             tableMapping.ColumnMappings.Add("CCCD", "CCCD");
@@ -1106,7 +1106,7 @@ namespace Final_1__Library.QLNVTableAdapters {
             tableMapping.ColumnMappings.Add("Address", "Address");
             tableMapping.ColumnMappings.Add("Position", "Position");
             tableMapping.ColumnMappings.Add("Salary", "Salary");
-            tableMapping.ColumnMappings.Add("Working Time", "Working Time");
+            tableMapping.ColumnMappings.Add("Working Time", "WorkingTime");
             tableMapping.ColumnMappings.Add("Extra", "Extra");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -1196,8 +1196,8 @@ SELECT [ID Employee], Name, Gender, CCCD, Phone, Address, Position, Salary, [Wor
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [ID Employee], Name, Gender, CCCD, Phone, Address, Position, Salary, [Work" +
-                "ing Time], Extra FROM dbo.EMPLOYEES";
+            this._commandCollection[0].CommandText = "SELECT IDEmployee, Name, Gender, CCCD, Phone, Address, Position, Salary, WorkingT" +
+                "ime, Extra, [ID Employee] FROM EMPLOYEES WHERE ([Working Time] >= 100)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1611,33 +1611,6 @@ SELECT [ID Employee], Name, Gender, CCCD, Phone, Address, Position, Salary, [Wor
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Name, 
-                    string Gender, 
-                    global::System.Nullable<int> CCCD, 
-                    global::System.Nullable<int> Phone, 
-                    string Address, 
-                    string Position, 
-                    global::System.Nullable<int> Salary, 
-                    global::System.Nullable<int> Working_Time, 
-                    global::System.Nullable<int> Extra, 
-                    string Original_ID_Employee, 
-                    string Original_Name, 
-                    string Original_Gender, 
-                    global::System.Nullable<int> Original_CCCD, 
-                    global::System.Nullable<int> Original_Phone, 
-                    string Original_Address, 
-                    string Original_Position, 
-                    global::System.Nullable<int> Original_Salary, 
-                    global::System.Nullable<int> Original_Working_Time, 
-                    global::System.Nullable<int> Original_Extra) {
-            return this.Update(Original_ID_Employee, Name, Gender, CCCD, Phone, Address, Position, Salary, Working_Time, Extra, Original_ID_Employee, Original_Name, Original_Gender, Original_CCCD, Original_Phone, Original_Address, Original_Position, Original_Salary, Original_Working_Time, Original_Extra);
         }
     }
     

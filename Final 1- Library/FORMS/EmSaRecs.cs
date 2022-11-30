@@ -19,10 +19,16 @@ namespace Final_1__Library.Report
 
         private void EmSaRecs_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'empDataset.EMPLOYEES' table. You can move, or remove it, as needed.
+            this.eMPLOYEESTableAdapter.FillBy(this.empDataset.EMPLOYEES);
+            // TODO: This line of code loads data into the 'qLBrBook.EMPLOYEES' table. You can move, or remove it, as needed.
+            //this.eMPLOYEESTableAdapter1.Fill(this.qLBrBook.EMPLOYEES);
             // TODO: This line of code loads data into the 'qLNV.EMPLOYEES' table. You can move, or remove it, as needed.
-           
-            this.eMPLOYEESTableAdapter.Fill(this.qLNV.EMPLOYEES);
 
+           // this.eMPLOYEESTableAdapter.Fill(this.qLNV.EMPLOYEES);
+            
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }

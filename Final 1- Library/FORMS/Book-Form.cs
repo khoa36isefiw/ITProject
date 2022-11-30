@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization.Formatters;
 
 using Final_1__Library.CLASSES;
 
@@ -23,6 +23,7 @@ namespace Final_1__Library.FORMS
         public Book_Form()
         {
             InitializeComponent();
+            //LoadData(0);
         }
         public void LoadData(int index)
         {
@@ -34,17 +35,26 @@ namespace Final_1__Library.FORMS
                 dt = dbBo.Take_Book();
                 // Đưa dữ liệu lên DataGridView
                 if (index == 0)
-                { 
-                    dgvBOOK.DataSource = dbBo.Take_Book();
+                {
+                        dgvBOOK.ReadOnly = true;
+                        DataGridViewImageColumn picCol = new DataGridViewImageColumn();
+                        dgvBOOK.RowTemplate.Height = 50;
+                        dgvBOOK.DataSource = dbBo.Take_Book();
+                    // picCol = (DataGridViewImageColumn)dgvBOOK.Columns[9];
+                    //picCol = (DataGridViewImageColumn)dgvBOOK.Columns[9];
+                    //picCol.ImageLayout = DataGridViewImageCellLayout.Zoom; 
+                    //dgvBOOK.DataSource = dbBo.Take_Book();
                     dgvBOOK.AutoResizeColumns();
                     dgvBOOK.AutoResizeRows();
                     for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        if ((int.Parse(dgvBOOK.Rows[i].Cells[7].Value.ToString())) == 0 && borrowedBook.GetObjectByIDBook((int.Parse(dgvBOOK.Rows[i].Cells[7].Value.ToString()))).Rows.Count == 0)
                         {
-                            dbBo.Delete_Book(int.Parse(dgvBOOK.Rows[i].Cells[0].Value.ToString()));
+                            if ((int.Parse(dgvBOOK.Rows[i].Cells[7].Value.ToString())) == 0 && borrowedBook.GetObjectByIDBook((int.Parse(dgvBOOK.Rows[i].Cells[7].Value.ToString()))).Rows.Count == 0)
+                            {
+                                dbBo.Delete_Book(int.Parse(dgvBOOK.Rows[i].Cells[0].Value.ToString()));
+                            }
                         }
-                    }
+                    
+                    
                 }
                 if (index == 1)
                 {
@@ -89,7 +99,7 @@ namespace Final_1__Library.FORMS
                 this.txt_Type.ResetText();
                 this.txt_AuthorBook.ResetText();
                 this.txt_nbook.ResetText();
-                this.Pic_Book.ResetText();
+                //this.Pic_Book.ResetText();
                 this.Dtp_Updateday.ResetText();
                 this.txt_Description.ResetText();
                 this.txt_Pricebook.ResetText();
@@ -102,54 +112,63 @@ namespace Final_1__Library.FORMS
                 this.btn_delete.Enabled = true;
                 
                 //
-                dgvBOOK_CellClick(null, null);
+                //dgvBOOK_CellClick(null, null);
             }
             catch
             {
+                //MessageBox.Show(ex.Message);
                 MessageBox.Show("Can not take the data table. Error!!!");
             }
         }
-        private Object ByteArrayToObject(byte[] arrBytes)
-        {
-            MemoryStream memStream = new MemoryStream();
-            BinaryFormatter binForm = new BinaryFormatter();
-            memStream.Write(arrBytes, 0, arrBytes.Length);
-            memStream.Seek(0, SeekOrigin.Begin);
-            Object obj = (Object)binForm.Deserialize(memStream);
-
-            return obj;
-        }
+       
         private void dgvBOOK_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Thứ tự dòng hiện hành
-            int r = dgvBOOK.CurrentCell.RowIndex;
+            //int r = dgvBOOK.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
             this.txt_Idbook.Text =
-            dgvBOOK.Rows[r].Cells[0].Value.ToString();
+            dgvBOOK.CurrentRow.Cells[0].Value.ToString();
             this.txt_Namebook.Text =
-           dgvBOOK.Rows[r].Cells[1].Value.ToString();
+           dgvBOOK.CurrentRow.Cells[1].Value.ToString();
             this.txt_Publisher.Text =
-            dgvBOOK.Rows[r].Cells[2].Value.ToString();
+            dgvBOOK.CurrentRow.Cells[2].Value.ToString();
             this.txt_AuthorBook.Text =
-            dgvBOOK.Rows[r].Cells[3].Value.ToString();
+            dgvBOOK.CurrentRow.Cells[3].Value.ToString();
             this.txt_Type.Text =
-           dgvBOOK.Rows[r].Cells[4].Value.ToString();
+           dgvBOOK.CurrentRow.Cells[4].Value.ToString();
             this.txt_Description.Text =
-           dgvBOOK.Rows[r].Cells[5].Value.ToString();
+           dgvBOOK.CurrentRow.Cells[5].Value.ToString();
             this.Dtp_Updateday.Text =
-           dgvBOOK.Rows[r].Cells[6].Value.ToString();
+           dgvBOOK.CurrentRow.Cells[6].Value.ToString();
             this.txt_nbook.Text =
-            dgvBOOK.Rows[r].Cells[7].Value.ToString();
+            dgvBOOK.CurrentRow.Cells[7].Value.ToString();
             this.txt_Pricebook.Text =
-           dgvBOOK.Rows[r].Cells[8].Value.ToString();
-            this.Pic_Book.Text =
-                this.dgvBOOK.Rows[r].Cells[9].Value.ToString();
-            //if (dgvBOOK.Rows[r].Cells[9].Value != System.DBNull.Value)
+            dgvBOOK.CurrentRow.Cells[8].Value.ToString();
+            //if (dgvBOOK.CurrentRow.Cells[9].Value != System.DBNull.Value)
             //{
-            //    byte[] pic = Encoding.ASCII.GetBytes(dgvBOOK.Rows[r].Cells[9].Value.ToString().Trim());
-            //    this.Pic_Book.Image =byteArrayToImage(pic);
+            //    //Method 1:
+            //    //byte[] pic;
+            //    //pic = (byte[])dgvBOOK.CurrentRow.Cells[9].Value; // Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(dgvBOOK.CurrentRow.Cells[9].Value))
+            //    //Image x = (Bitmap)((new ImageConverter()).ConvertFrom(pic));
+            //    //Pb_bookpic.Image = x;
+            //    byte[] pic;
+            //    pic = (byte[])dgvBOOK.CurrentRow.Cells[9].Value;
+            //    MemoryStream picture = new MemoryStream(pic);
+            //    Pb_bookpic.Image = Image.FromStream(picture);
+            //    //Method 2 : 
+            //    //MemoryStream ms = new MemoryStream((byte[])dgvBOOK.CurrentRow.Cells[9].Value);
+            //    //Pb_bookpic.Image = Image.FromStream(ms);
+            //    //Method 3 :
+            //    //byte[] img = (byte[])dgvBOOK.CurrentRow.Cells[9].Value;
+            //    //MemoryStream str = new MemoryStream();
+            //    //str.Write(img, 0, img.Length);
+            //    //Bitmap bit = new Bitmap(str);
+
+            //    //Pb_bookpic.Image = bit;
+
+
             //}
-            //else this.Pic_Book.Image = Image.FromFile("../../IMAGES/add-file.png");
+            //else this.Pb_bookpic.Image = Image.FromFile("../../IMAGES/add-file.png");
         }
         private void Label_Close_Click(object sender, EventArgs e)
         {
@@ -165,6 +184,11 @@ namespace Final_1__Library.FORMS
         }
         private void Book_Form_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'library1012DataSet1.BOOKS' table. You can move, or remove it, as needed.
+            this.bOOKSTableAdapter.Fill(this.library1012DataSet1.BOOKS);
+            // TODO: This line of code loads data into the 'library1012DataSet.BOOKS' table. You can move, or remove it, as needed.
+           // this.bOOKSTableAdapter.Fill(this.library1012DataSet.BOOKS);
+
             this.btn_Bookheader.Image = Image.FromFile("../../IMAGES/bookshelf.png");
             btn_Add.Image = Image.FromFile("../../IMAGES/add-file.png");
             btn_Edit.Image = Image.FromFile("../../IMAGES/edit.png");
@@ -178,13 +202,6 @@ namespace Final_1__Library.FORMS
             Lb_typeFind.Items.Add("ID Author");
             Lb_typeFind.Items.Add("Publisher");
             Lb_typeFind.Items.Add("Book type");
-
-
-           
-            
-
-
-
 
             LoadData(0);
         }
@@ -200,7 +217,7 @@ namespace Final_1__Library.FORMS
             this.txt_Type.ResetText();
             this.txt_AuthorBook.ResetText();
             this.txt_nbook.ResetText();
-            this.Pic_Book.ResetText();
+            //this.Pic_Book.ResetText();
             this.Dtp_Updateday.ResetText();
             this.txt_Description.ResetText();
             this.txt_Pricebook.ResetText();
@@ -216,26 +233,17 @@ namespace Final_1__Library.FORMS
             this.txt_Idbook.Focus();
         }
 
-        private void btn_UploadImage_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog opf = new OpenFileDialog();
-            opf.Filter = "Select Image(*.jpg;*.png;*.gif) |*.jpg;*.png;*gif";
-            if ((opf.ShowDialog() == DialogResult.OK))
-            {
-                Pic_Book.Image = Image.FromFile(opf.FileName);
-                Pic_Book.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-        }
-        private byte[] ImageToArray(Image pic,System.Drawing.Imaging.ImageFormat format)
-        {
-            using(MemoryStream ms = new MemoryStream())
-            {
-                pic.Save(ms,format);
-                byte[] ImageBytes = ms.ToArray();
-
-                return ImageBytes;
-            }
-        }
+        //private void btn_UploadImage_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog opf = new OpenFileDialog();
+        //    opf.Filter = "Select Image(*.jpg;*.png;*.gif) |*.jpg;*.png;*gif";
+        //    if ((opf.ShowDialog() == DialogResult.OK))
+        //    {
+        //        Pic_Book.Image = Image.FromFile(opf.FileName);
+        //        Pic_Book.SizeMode = PictureBoxSizeMode.StretchImage;
+        //    }
+        //}
+        
         private void btn_Save_Click(object sender, EventArgs e)
         {
             
@@ -249,12 +257,14 @@ namespace Final_1__Library.FORMS
                     // Thực hiện lệnh
                     
                     BL_Book dbBo = new BL_Book();
-                    byte[] bArr = ImageToArray(this.Pic_Book.Image, this.Pic_Book.Image.RawFormat);
+                    //byte[] bArr = ImageToArray(this.Pic_Book.Image, this.Pic_Book.Image.RawFormat);
                     //using (QuanLyThuVienEntities qltvEntity = new QuanLyThuVienEntities())
                     //{
                     //    qltvEntity.BOOKS.Add(new BOOK() { ID_Book = int.Parse(this.txt_Idbook.Text), Name = this.txt_Namebook.Text, ID_publisher = int.Parse(this.txt_Publisher.Text), ID_author = int.Parse(this.txt_AuthorBook.Text), Type = this.txt_Type.Text, Description = this.txt_Description.Text, Update_day = this.Dtp_Updateday.Value, N_books = int.Parse(this.txt_nbook.Text), price = int.Parse(this.txt_Pricebook.Text), picture_book = ImageToArray(this.Pic_Book) });
                     //}
-                    dbBo.Add_Book(int.Parse(txt_Idbook.Text), txt_Namebook.Text, int.Parse(this.txt_Publisher.Text), int.Parse(txt_AuthorBook.Text), txt_Type.Text, txt_Description.Text, Dtp_Updateday.Value, int.Parse(this.txt_nbook.Text), int.Parse(this.txt_Pricebook.Text), bArr) ;
+                    //MemoryStream pic = new MemoryStream();
+                    //Pb_bookpic.Image.Save(pic, Pb_bookpic.Image.RawFormat);
+                    dbBo.Add_Book(int.Parse(txt_Idbook.Text), txt_Namebook.Text, int.Parse(this.txt_Publisher.Text), int.Parse(txt_AuthorBook.Text), txt_Type.Text, txt_Description.Text, Dtp_Updateday.Value, int.Parse(this.txt_nbook.Text), int.Parse(this.txt_Pricebook.Text)) ;
                     // Load lại dữ liệu trên DataGridView
                     LoadData(0);
                     // Thông báo
@@ -268,10 +278,11 @@ namespace Final_1__Library.FORMS
             else
             {
                 // Thực hiện lệnh
-                
+                //MemoryStream pic = new MemoryStream();
+                //Pb_bookpic.Image.Save(pic, Pb_bookpic.Image.RawFormat);
                 BL_Book dbBo = new BL_Book();
-                byte[] bArr = ImageToArray(this.Pic_Book.Image, this.Pic_Book.Image.RawFormat);
-                dbBo.Edit_Book(int.Parse(this.txt_Idbook.Text), this.txt_Namebook.Text, int.Parse(this.txt_Publisher.Text), int.Parse(this.txt_AuthorBook.Text), this.txt_Type.Text, this.txt_Description.Text, this.Dtp_Updateday.Value, int.Parse(this.txt_nbook.Text), int.Parse(this.txt_Pricebook.Text), bArr);
+                //byte[] bArr = ImageToArray(this.Pic_Book.Image, this.Pic_Book.Image.RawFormat);
+                dbBo.Edit_Book(int.Parse(this.txt_Idbook.Text), this.txt_Namebook.Text, int.Parse(this.txt_Publisher.Text), int.Parse(this.txt_AuthorBook.Text), this.txt_Type.Text, this.txt_Description.Text, this.Dtp_Updateday.Value, int.Parse(this.txt_nbook.Text), int.Parse(this.txt_Pricebook.Text));
                 LoadData(0);
                 // Thông báo
                 MessageBox.Show("Fixed!");
@@ -288,7 +299,6 @@ namespace Final_1__Library.FORMS
             dgvBOOK_CellClick(null, null);
             // Không cho thao tác trên các nút Lưu / Hủy
             this.btn_Save.Enabled = true;
-
             this.panel_Infor.Enabled = true;
 
             // Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát
@@ -371,7 +381,17 @@ namespace Final_1__Library.FORMS
                 
             
         }
-
+        //private byte[] ObjectToByteArray(object obj)
+        //{
+        //    if (obj == null)
+        //        return null;
+        //    BinaryFormatter bf = new BinaryFormatter();
+        //    using (MemoryStream ms = new MemoryStream())
+        //    {
+        //        bf.Serialize(ms, obj);
+        //        return ms.ToArray();
+        //    }
+        //}
         private void btn_Back_Click(object sender, EventArgs e)
         {
             LoadData(0);
@@ -394,6 +414,21 @@ namespace Final_1__Library.FORMS
             doc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(doc_PrintPage);
             doc.Print();
             
+        }
+
+        private void btnpicbook_Click(object sender, EventArgs e)
+        {
+        //    OpenFileDialog opf = new OpenFileDialog();
+        //    opf.Filter = "Select Image(*.jpg;*.png;*gif)|*.jpg;*.pngl*.gif";
+        //    if ((opf.ShowDialog() == DialogResult.OK))
+        //    {
+        //        Pb_bookpic.Image = Image.FromFile(opf.FileName); 
+        //    }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

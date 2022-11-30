@@ -31,23 +31,13 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.eMPLOYEESBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.eMPLOYEESBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.empDataset = new Final_1__Library.EmpDataset();
+            this.empDatasetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMPLOYEESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLNV = new Final_1__Library.QLNV();
-            this.qLNVBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMPLOYEESTableAdapter = new Final_1__Library.QLNVTableAdapters.EMPLOYEESTableAdapter();
-            this.eMPLOYEESBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.qLNVBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.eMPLOYEESBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEESBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEESBindingSource3)).BeginInit();
+            this.eMPLOYEESTableAdapter = new Final_1__Library.EmpDatasetTableAdapters.EMPLOYEESTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.empDataset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empDatasetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEESBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEESBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEESBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -56,56 +46,31 @@
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.eMPLOYEESBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Final_1__Library.Report2.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Final_1__Library.EmpReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(988, 499);
             this.reportViewer1.TabIndex = 0;
             // 
-            // eMPLOYEESBindingSource2
+            // empDataset
             // 
-            this.eMPLOYEESBindingSource2.DataMember = "EMPLOYEES";
-            this.eMPLOYEESBindingSource2.DataSource = this.qLNVBindingSource;
+            this.empDataset.DataSetName = "EmpDataset";
+            this.empDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // eMPLOYEESBindingSource3
+            // empDatasetBindingSource
             // 
-            this.eMPLOYEESBindingSource3.DataMember = "EMPLOYEES";
-            this.eMPLOYEESBindingSource3.DataSource = this.qLNVBindingSource;
+            this.empDatasetBindingSource.DataSource = this.empDataset;
+            this.empDatasetBindingSource.Position = 0;
             // 
             // eMPLOYEESBindingSource
             // 
             this.eMPLOYEESBindingSource.DataMember = "EMPLOYEES";
-            this.eMPLOYEESBindingSource.DataSource = this.qLNV;
-            // 
-            // qLNV
-            // 
-            this.qLNV.DataSetName = "QLNV";
-            this.qLNV.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // qLNVBindingSource
-            // 
-            this.qLNVBindingSource.DataSource = this.qLNV;
-            this.qLNVBindingSource.Position = 0;
+            this.eMPLOYEESBindingSource.DataSource = this.empDatasetBindingSource;
             // 
             // eMPLOYEESTableAdapter
             // 
             this.eMPLOYEESTableAdapter.ClearBeforeFill = true;
-            // 
-            // eMPLOYEESBindingSource1
-            // 
-            this.eMPLOYEESBindingSource1.DataMember = "EMPLOYEES";
-            this.eMPLOYEESBindingSource1.DataSource = this.qLNV;
-            // 
-            // qLNVBindingSource1
-            // 
-            this.qLNVBindingSource1.DataSource = this.qLNV;
-            this.qLNVBindingSource1.Position = 0;
-            // 
-            // eMPLOYEESBindingSource4
-            // 
-            this.eMPLOYEESBindingSource4.DataMember = "EMPLOYEES";
-            this.eMPLOYEESBindingSource4.DataSource = this.qLNVBindingSource;
             // 
             // EmSaRecs
             // 
@@ -116,14 +81,9 @@
             this.Name = "EmSaRecs";
             this.Text = "EmSaRecs";
             this.Load += new System.EventHandler(this.EmSaRecs_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEESBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEESBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empDataset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empDatasetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEESBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEESBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNVBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEESBindingSource4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -131,14 +91,9 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource qLNVBindingSource;
-        private QLNV qLNV;
+        private EmpDataset empDataset;
+        private System.Windows.Forms.BindingSource empDatasetBindingSource;
         private System.Windows.Forms.BindingSource eMPLOYEESBindingSource;
-        private QLNVTableAdapters.EMPLOYEESTableAdapter eMPLOYEESTableAdapter;
-        private System.Windows.Forms.BindingSource eMPLOYEESBindingSource1;
-        private System.Windows.Forms.BindingSource eMPLOYEESBindingSource2;
-        private System.Windows.Forms.BindingSource qLNVBindingSource1;
-        private System.Windows.Forms.BindingSource eMPLOYEESBindingSource3;
-        private System.Windows.Forms.BindingSource eMPLOYEESBindingSource4;
+        private EmpDatasetTableAdapters.EMPLOYEESTableAdapter eMPLOYEESTableAdapter;
     }
 }

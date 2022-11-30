@@ -14,7 +14,7 @@ namespace Final_1__Library
     
     public partial class EMPLOYEE
     {
-        public string ID_Employee { get; set; }
+        public int ID_Employee { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
         public Nullable<int> CCCD { get; set; }
@@ -22,9 +22,8 @@ namespace Final_1__Library
         public string Address { get; set; }
         public string Position { get; set; }
         public Nullable<int> Salary { get; set; }
-        public Nullable<int> Working_Time { get; set; }
+        public Nullable<int> Working_time { get; set; }
         public Nullable<int> Extra { get; set; }
-
-        public virtual double Cal_Salary(int a, int b) { return a * b; }
+        public virtual double Cal_Salary(int working_time, int extra) { return 0; }
     }
 }
